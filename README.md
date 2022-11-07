@@ -3,3 +3,4 @@
 ## Collaborators
 
 - elliott schwarzman (nschwrzm@memphis.edu)
+- Brandon Hobson (bchobson@memphis.edu)
