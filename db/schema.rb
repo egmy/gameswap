@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2022_11_09_192840) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -17,6 +18,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_09_192840) do
   create_table "games", force: :cascade do |t|
     t.string "title"
     t.text "description"
+=======
+ActiveRecord::Schema[7.0].define(version: 2022_11_09_192938) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password"
+    t.string "description"
+>>>>>>> 138a670c5949e56612014f21d43f898e55a4d3ed
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

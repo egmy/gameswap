@@ -1,3 +1,14 @@
+# Seeds
+
+# users
+alice = User.create!(
+    username: 'alice',
+    password: 'password123',
+    image: 'user_icon.png',
+  )
+
+# games
+
 nba2k = Game.create!(
     title: 'NBA 2K23',
     description: "This is a basketball game",
@@ -9,5 +20,3 @@ madden22 = Game.create!(
     description: 'This is a football game',
     image: 'Madden NFL 22.png'
 )
-
-
