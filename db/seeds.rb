@@ -7,61 +7,6 @@ alice = User.create!(
     image: 'user_icon.png',
   )
 
-# TAGS
-
-action = Tag.create!(
-    name: 'Action'
-)
-
-adventure = Tag.create!(
-    name: 'Adventure'
-)
-
-fighting = Tag.create!(
-    name: 'Fighting'
-)
-indie = Tag.create!(
-    name: 'Indie'
-)
-
-racing = Tag.create!(
-    name: 'Racing'
-)
-
-rpg = Tag.create!(
-    name: 'Role-playing'
-)
-
-shooter = Tag.create!( 
-    name: 'Shooter'
-)
-
-simulation = Tag.create!(
-    name: 'Simulation'
-)
-
-sports = Tag.create!(
-    name: 'Sports'
-)
-
-strategy = Tag.create!(
-    name: 'Strategy'
-)
-
-# games
-
-nba2k = Game.create!(
-    title: 'NBA 2K23',
-    description: "This is a basketball game",
-    image: 'NBA 2k23.png'
-)
-
-madden22 = Game.create!(
-    title: 'Madden NFL 22',
-    description: 'This is a football game',
-    image: 'Madden NFL 22.png'
-)
-
 # offers
 #  accepted    :boolean
 #  condition   :string  -> valid: 'New', 'Used-Like New', 'Used-Very Good', 'Used-Good', 'Used-Acceptable'
@@ -86,9 +31,38 @@ offer_3 = Offer.create!(
     description: "This is the collector's edition of Barbie and Her Sisters: Puppy Rescue. The case is scuffed, but the game is in mint condition.",
     status: "inactive"
 )
+
 #listings
+
 nba2k_alice_listing= Listing.create!(
     description: 'I would like a sports game in exchange for this NBA2K. Condition is good, there are minor scratches',
     condition: 'Used-Good',
     status: 'active'
+)
+
+# TAGS
+
+action    = Tag.create!(name: 'Action')
+adventure = Tag.create!(name: 'Adventure')
+fighting  = Tag.create!(name: 'Fighting')
+indie     = Tag.create!(name: 'Indie')
+racing    = Tag.create!(name: 'Racing')
+rpg       = Tag.create!(name: 'Role-playing')
+shooter   = Tag.create!(name: 'Shooter')
+sim       = Tag.create!(name: 'Simulation')
+sports    = Tag.create!(name: 'Sports')
+strategy  = Tag.create!(name: 'Strategy')
+
+# games
+
+nba2k = Game.create!(
+    title: 'NBA 2K23',
+    description: "This is a basketball game",
+    image: 'NBA 2k23.png'
+)
+
+madden22 = Game.create!(
+    title: 'Madden NFL 22',
+    description: 'This is a football game',
+    image: 'Madden NFL 22.png'
 )
