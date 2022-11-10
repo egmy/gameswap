@@ -1,17 +1,53 @@
 # Seeds
 
-# users
+# USERS
+
 alice = User.create!(
     username: 'alice',
     password: 'password123',
     image: 'user_icon.png',
   )
 
-# games
+# OFFERS
+#  accepted    :boolean
+#  condition   :string  -> valid: 'New', 'Used-Like New', 'Used-Very Good', 'Used-Good', 'Used-Acceptable'
+#  description :string
+#  status      :string  -> valid: 'active', 'inactive', 'accepted'
+
+offer_1 = Offer.create!(
+    accepted: false,
+    condition: "New",
+    description: "This game is in mint condition...",
+    status: "active"
+)
+offer_2 = Offer.create!(
+    accepted: false,
+    condition: "Used-Acceptable",
+    description: "My dog ate it, but threw it back up. It still works.",
+    status: "inactive"
+)
+offer_3 = Offer.create!(
+    accepted: true,
+    condition: "Used-Like New",
+    description: "This is the collector's edition of Barbie and Her Sisters: Puppy Rescue. The case is scuffed, but the game is in mint condition.",
+    status: "inactive"
+)
+
+# LISTINGS
+
+nba2k_alice_listing = Listing.create!(
+    description: 'I would like a sports game in exchange for this NBA2K. Condition is good, there are minor scratches',
+    condition: 'Used-Good',
+    status: 'active'
+)
+
+
+
+# GAMES
 
 advancedWarfare = Game.create!(
     title: 'Call of Duty: Advanced Warfare',
-    description: 'Call of Duty®: Advanced Warfare, developed by Sledgehammer Games (co-developers of Call of Duty®: Modern Warfare® 3), harnesses the first three-year, all next-gen development cycle in franchise history. Call of Duty®: Advanced Warfare envisions the powerful battlegrounds of the future, where both technology and tactic have evolved to usher in a new era of combat for the franchise. Delivering a stunning performance, Academy Award® winning actor Kevin Spacey stars as Jonathan Irons – one of the most powerful men in the world – shaping this chilling vision of the future of war.',
+    description: 'Call of Duty: Advanced Warfare, developed by Sledgehammer Games (co-developers of Call of Duty®: Modern Warfare® 3), harnesses the first three-year, all next-gen development cycle in franchise history. Call of Duty®: Advanced Warfare envisions the powerful battlegrounds of the future, where both technology and tactic have evolved to usher in a new era of combat for the franchise. Delivering a stunning performance, Academy Award® winning actor Kevin Spacey stars as Jonathan Irons – one of the most powerful men in the world – shaping this chilling vision of the future of war.',
     image: 'Call of Duty Advanced Warfare'
 )
 
