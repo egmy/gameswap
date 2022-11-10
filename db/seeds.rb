@@ -20,3 +20,10 @@ madden22 = Game.create!(
     description: 'This is a football game',
     image: 'Madden NFL 22.png'
 )
+
+#listings
+nba2k_alice_listing= Listing.create!(
+    description: 'I would like a sports game in exchange for this NBA2K. Condition is good, there are minor scratches',
+    condition: 'Used-Good',
+    status: 'active'
+)
