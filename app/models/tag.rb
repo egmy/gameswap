@@ -8,4 +8,12 @@
 #  updated_at :datetime         not null
 #
 class Tag < ApplicationRecord
+
+    has_many(
+        :games,
+        class_name: 'Game',
+        foreign_key: 'tag_id',
+        inverse_of: :tag
+    )
+    
 end
