@@ -7,6 +7,47 @@ alice = User.create!(
     image: 'user_icon.png',
   )
 
+# TAGS
+
+action = Tag.create!(
+    name: 'Action'
+)
+
+adventure = Tag.create!(
+    name: 'Adventure'
+)
+
+fighting = Tag.create!(
+    name: 'Fighting'
+)
+indie = Tag.create!(
+    name: 'Indie'
+)
+
+racing = Tag.create!(
+    name: 'Racing'
+)
+
+rpg = Tag.create!(
+    name: 'Role-playing'
+)
+
+shooter = Tag.create!( 
+    name: 'Shooter'
+)
+
+simulation = Tag.create!(
+    name: 'Simulation'
+)
+
+sports = Tag.create!(
+    name: 'Sports'
+)
+
+strategy = Tag.create!(
+    name: 'Strategy'
+)
+
 # games
 
 nba2k = Game.create!(
