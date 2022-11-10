@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: offers
+#
+#  id          :bigint           not null, primary key
+#  accepted    :boolean
+#  condition   :string
+#  description :string
+#  status      :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+one:
+  description: MyString
+  condition: MyString
+  accepted: false
+  status: MyString
+
+two:
+  description: MyString
+  condition: MyString
+  accepted: false
+  status: MyString
