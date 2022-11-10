@@ -45,3 +45,9 @@ offer_3 = Offer.create!(
     description: "This is the collector's edition of Barbie and Her Sisters: Puppy Rescue. The case is scuffed, but the game is in mint condition.",
     status: "inactive"
 )
+#listings
+nba2k_alice_listing= Listing.create!(
+    description: 'I would like a sports game in exchange for this NBA2K. Condition is good, there are minor scratches',
+    condition: 'Used-Good',
+    status: 'active'
+)
