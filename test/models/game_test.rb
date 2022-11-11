@@ -8,6 +8,15 @@
 #  title       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  tag_id      :bigint
+#
+# Indexes
+#
+#  index_games_on_tag_id  (tag_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (tag_id => tags.id)
 #
 require "test_helper"
 
