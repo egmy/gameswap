@@ -19,6 +19,7 @@
 #  fk_rails_...  (tag_id => tags.id)
 #
 class Game < ApplicationRecord
+    validates :title, :image, :description, presence: true
 
     belongs_to(
         :tag,
@@ -26,4 +27,5 @@ class Game < ApplicationRecord
         foreign_key: 'tag_id',
         inverse_of: :games
     )
+
 end
