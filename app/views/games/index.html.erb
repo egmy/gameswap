@@ -1,0 +1,33 @@
+
+<div class="container-fluid">
+
+    <div class="container row border border-dark">
+
+        <div class="col col-2 border border-warning">
+            <h2>Tags</h2>
+            <% @tags.each do |tag|%>
+                <%= tag.name %>
+            <% end %>
+        </div>
+    
+
+        <!-- Games container -->
+        <div class="container col text-center border border-success">
+            <div class="container row row-cols-auto gap-3 m-auto ">
+                <% @games.each do |game| %>
+                    <div class="col m-auto">
+                        <%= link_to href='#', class: 'text-decoration-none' do %>
+                            <div class="card" style="width: 15rem;">
+                                <%= image_tag "covers/" + game.image, class: "card-img-top", size: '175x280' %>
+                                <div class="card-body bg-light">
+                                    <p class="card-text" style="font-size: 13px"><%= game.title %> </p>
+                                </div>   
+                            </div>
+                        <% end %>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+
+</div>
