@@ -1,8 +1,10 @@
 class GamesController < ApplicationController
+
    def index
-    @games = Game.order(:title)
-    @tags = Tag.all
-    render :index
+      @q = Game.ransack(params[:q])
+      @games = @q.result.includes(:tag).order(:title)
+      @tags = Tag.all
+      render :index
    end
 
 
