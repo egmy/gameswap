@@ -28,4 +28,15 @@ class Game < ApplicationRecord
         inverse_of: :games
     )
 
+    has_many(
+        :listings,
+        class_name: 'Listing',
+        foreign_key: 'game_id',
+        inverse_of: :game,
+        dependent: :destroy
+    )
+    
+   
+
+
 end
