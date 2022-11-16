@@ -4,6 +4,7 @@
 
     alice = User.create!(
         username: 'alice',
+        email: 'alice@email.com',
         password: 'password123',
         image: 'user_icon.png'
     )
