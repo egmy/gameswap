@@ -24,7 +24,7 @@ class User < ApplicationRecord
     # Include default devise modules. Others available are:
     # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
     devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
-    
+
     has_many(
         :listings,
         class_name: 'Listing',
@@ -32,5 +32,13 @@ class User < ApplicationRecord
         inverse_of: :user,
         dependent: :destroy
     )
-    
+
+    has_many(
+        :offers,
+        class_name: 'Offer',
+        foreign_key: 'user_id',
+        inverse_of: :user,
+        dependent: :destroy
+    )
+
 end

@@ -35,8 +35,15 @@ class Game < ApplicationRecord
         inverse_of: :game,
         dependent: :destroy
     )
-    
-   
+
+    has_many(
+        :offers,
+        class_name: 'Offer',
+        foreign_key: 'game_id',
+        inverse_of: :game,
+        dependent: :destroy
+    )
+
 
 
 end

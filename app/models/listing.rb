@@ -22,7 +22,14 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Listing < ApplicationRecord
-    
+
+    has_many(
+        :offers,
+        class_name: "Offer",
+        foreign_key: "listing_id",
+        inverse_of: :listing,
+        # dependent: :destroy
+    )
 
     belongs_to(
         :user,

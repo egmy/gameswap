@@ -220,7 +220,7 @@
         condition: 'Used-Good',
         status: 'active',
         user: alice,
-        game: rocketLeague 
+        game: rocketLeague
     )
 
 # OFFERS
@@ -229,19 +229,28 @@
         accepted: false,
         condition: "New",
         description: "This game is in mint condition...",
-        status: "active"
+        status: "active",
+        listing: nba2k_alice_listing,
+        game: coldWar,
+        user: alice
     )
     offer_2 = Offer.create!(
         accepted: false,
         condition: "Used-Acceptable",
         description: "My dog ate it, but threw it back up. It still works.",
-        status: "inactive"
+        status: "inactive",
+        listing: nba2k_alice_listing,
+        game: gta5,
+        user: alice
     )
     offer_3 = Offer.create!(
         accepted: true,
         condition: "Used-Like New",
         description: "This is the collector's edition of Barbie and Her Sisters: Puppy Rescue. The case is scuffed, but the game is in mint condition.",
-        status: "inactive"
+        status: "inactive",
+        listing: cod_alice,
+        game: halo5,
+        user: alice
     )
 
 
