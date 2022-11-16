@@ -9,6 +9,7 @@
         image: 'user_icon.png'
     )
 
+
 # TAGS
 
     action    = Tag.create!(name: 'Action')
@@ -27,7 +28,7 @@
     advancedWarfare = Game.create!(
         title: 'Call of Duty: Advanced Warfare',
         description: 'Call of Duty: Advanced Warfare, developed by Sledgehammer Games (co-developers of Call of Duty®: Modern Warfare® 3), harnesses the first three-year, all next-gen development cycle in franchise history. Call of Duty®: Advanced Warfare envisions the powerful battlegrounds of the future, where both technology and tactic have evolved to usher in a new era of combat for the franchise. Delivering a stunning performance, Academy Award® winning actor Kevin Spacey stars as Jonathan Irons – one of the most powerful men in the world – shaping this chilling vision of the future of war.',
-        image: 'Call of Duty Advanced Warfare',
+        image: 'Call of Duty Advanced Warfare.png',
         tag: shooter
     )
 
@@ -211,6 +212,15 @@
         status: 'active',
         user: alice,
         game: nba2k23
+
+    )
+
+    cod_alice=Listing.create!(
+        description: 'I would like a sports game in exchange for this Rocket Leage. Condition is good, there are minor scratches',
+        condition: 'Used-Good',
+        status: 'active',
+        user: alice,
+        game: rocketLeague 
     )
 
 # OFFERS
