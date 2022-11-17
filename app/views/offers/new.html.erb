@@ -3,30 +3,57 @@
         <title>Page Title Goes Here</title><!-- TBD; not in WF -->
     </head>
     <body>
-        <div class="container">
-            <div class="row">
-                <div class="col align-content-center">
-                    <h1 style="text-align: center">New Offer</h1>
+        <%= bootstrap_form_with model: @offer, url: offers_path, method: :post, data: { turbo: false } do |f| %> <%# probably a more streamlined way to use form fields outside of a block, but this works %>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h1 style="text-align: center">New Offer</h1>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-5">
+                        <!-- Listing -->
+                        <%= image_tag "covers/" + @listing.game.image, class: 'card-img-top' %>
+                        <h2><%= @listing.game.title %></h2>
+                        <p>Condition: <%= @listing.condition %></p>
+                        <p><%= @listing.description %></p>
+                    </div>
+                    <div class="col-2" align="center">
+                        <div class="row h-25"><!-- formatting --></div>
+                        <div class="row">
+                            <%# <div class="align-self-start"> %>
+                                <%= image_tag "logos/logo1.png", class: 'card-img' %>
+                            <%# </div> %>
+                        </div>
+                        <div class="row h-50"><!-- formatting --></div>
+                        <div>
+                            <div class="col">
+                                <%= f.submit %>
+                                <%= link_to "Cancel", game_path(Listing.find(params[:listing_id]).game_id), class: 'btn btn-secondary' %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <!-- Offer -->
+                        <% if params[:game_id] %>
+                            <%= image_tag "covers/" + Game.find(params[:game_id]).image, class: 'card-img-top' %>  <%# placeholder for dynamic image %>
+                        <% else %>
+                            <%= image_tag "covers/NO_COVER.png", class: 'card-img-top' %>
+                        <% end %>
+                        <%# to-do: js implementation of autocomplete (refer to 4040 notes 11/16) %>
+                        <% if params[:game_id] %>
+                            <%= f.text_field :title, value: Game.find(params[:game_id]).title %>
+                        <% else %>
+                            <%= f.text_field :title, value: "Search for your game title" %>
+                        <% end %>
+
+                        <%= link_to "Choose from a list", games_index_path(:listing_id => params[:listing_id]) %>
+                        <br><br><!-- formatting -->
+                        <%= f.select :condition, %W(New #{"Used-Like New"} #{"Used-Very Good"} Used-Good Used-Acceptable) %>
+                        <%= f.text_area :description, value: "This game is in mint condition..." %>
+                    </div>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div id="listing_col" class="col-1 align-content-center" style="background: yellow">
-
-                    Listing
-
-                </div>
-                <div id="center" class="col-2 align-items-center" style="width: 50%; align: center">
-                <center>
-                    <->
-                </center>
-                </div>
-                <div id="offer col" class="col-3">
-                    <center>
-                    Offer
-                    </center>
-                </div>
-            </div>
-        </div>
+        <% end %>
     </body>
 </html>
-<!-- dev only -->

@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   get 'index/:game_id/new', to: 'listings#new', as: 'new_game_listing'
 
-  get 'listing/:listing_id/offer/new', to: 'offers#new', as: 'new_offer'
+  get 'games_index', to: 'offers#games_index', as: 'games_index' # used for WF06 'Choose from a list'
+
+  get 'listing/:listing_id/offers', to: 'offers#index', as: 'offers'
+  get 'listing/:listing_id/offers/new', to: 'offers#new', as: 'new_offer'
+  post 'listing/:listing_id/offers', to: 'offers#create'
 
 end
