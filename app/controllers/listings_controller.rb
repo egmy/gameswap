@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
+  
     def index
       @game = Game.find(params[:game_id])
       @listings = @game.listings
@@ -12,6 +13,7 @@ class ListingsController < ApplicationController
       @listing = Listing.new
       render :new
     end
+
 
     def create
       @game = Game.find(params[:game_id])
