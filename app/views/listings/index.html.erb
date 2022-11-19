@@ -23,14 +23,11 @@
 
 <div class="container">
     <div class="image">
-    <%= image_tag "covers/" + @game.image, size: '320x480' %>
-      </div>
+    <%= image_tag "covers/" + @game.image, size: '400x520' %>
+    </div>
     <div class="text">
           <%= @game.description%>
     </div>
-    
-  
-    
 </div>
 
 
@@ -43,9 +40,6 @@
         <div class="col-6 col-md-4 text-end">
             <%= link_to 'Create New Listing', new_game_listing_path, class: 'btn btn-primary' %>
         </div>
- 
-   
-   
     </div>
 </div>
 
@@ -58,20 +52,19 @@
       <th>Condition</th>
       <th></th>
     </tr>
-   
   </thead>
   <tbody>
     <% @listings.each_with_index do |listing, index| %>
-
       <tr>
-        <td><%= index+1 %>. <%= link_to listing.user.username%><br>  <%= listing.description%></td>
+        <td><%= index+1 %>. <%= link_to listing.user.username%><br></td>
         <td><%= listing.condition%></td>
-
         <td><%= link_to 'Make Offer', class: "btn btn-primary" %></td> 
-
       </tr>
-
-      
+      <tr>
+        <td><%= listing.description%></td>
+        <td></td>
+        <td></td>
+      </tr>
     <% end %>
   </tbody>
 </table>
