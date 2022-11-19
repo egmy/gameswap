@@ -31,7 +31,7 @@ class User < ApplicationRecord
 
     has_many(
         :listings,
-        class_name: 'Listing',
+        class_name: 'Listing'
         foreign_key: 'user_id',
         inverse_of: :user,
         dependent: :destroy
