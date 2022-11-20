@@ -41,6 +41,9 @@ class OffersController < ApplicationController
   def create
     @listing = Listing.find(params[:listing_id])
     # game_id = Game.where(params.permit[:title]).ids[0] # variations of this cause another unpermitted parameter error
+    #@game = Game.where(params[:title])
+    @game = Game.find(params[:offer][:game_id])
+
     @offer = current_user.offers.build(params.require(:offer).permit(:condition, :description, @listing, status: "active")) # tried permitting :title here, also assigning @game_id => Game.where(params.permit[:title]), and many other variations
     if @offer.save
       flash[:success] = "Offer successfully created"

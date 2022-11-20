@@ -42,12 +42,13 @@
                         <% end %>
                         <%# to-do: js implementation of autocomplete (refer to 4040 notes 11/16) %>
                         <% if params[:game_id] %>
-                            <%= f.text_field :title, value: Game.find(params[:game_id]).title %>
+                            <%# <%= f.text_field :title, value: Game.find(params[:game_id]).title %> %>
                         <% else %>
-                            <%= f.text_field :title, value: "Search for your game title" %>
+                            <%# <%= f.text_field :title, value: "Search for your game title" %> %>
+                            <%= f.number_field :game_id, value: "Enter a game id" %>
                         <% end %>
 
-                        <%= link_to "Choose from a list", games_index_path(:listing_id => params[:listing_id]) %>
+                        <%= link_to "Choose from a list", games_index_path(:listing_id => params[:listing_id]) %> <%# pass listing_id to games_index so it can redierct back to this page (using the correct listing_id that the offer is being made for) %>
                         <br><br><!-- formatting -->
                         <%= f.select :condition, %W(New #{"Used-Like New"} #{"Used-Very Good"} Used-Good Used-Acceptable) %>
                         <%= f.text_area :description, value: "This game is in mint condition..." %>
