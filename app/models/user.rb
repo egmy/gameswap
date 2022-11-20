@@ -49,7 +49,7 @@ class User < ApplicationRecord
         :authored_ratings,
         class_name:  'Rating',
         foreign_key: 'user_id',
-        inverse_of:  :author_rating,
+        inverse_of:  :author,
         dependent:   :destroy
     )
 
@@ -57,7 +57,7 @@ class User < ApplicationRecord
         :received_ratings,
         class_name:  'Rating',
         foreign_key: 'user_id',
-        inverse_of:  :subject_rating,
+        inverse_of:  :subject,
         dependent:   :destroy
     )
 

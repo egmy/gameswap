@@ -18,7 +18,7 @@ class Rating < ApplicationRecord
     )
 
     belongs_to(
-        :author_rating,
+        :author,
         class_name:  'User',
         foreign_key: 'user_id',
         inverse_of:  :authored_ratings,
@@ -26,10 +26,10 @@ class Rating < ApplicationRecord
     )
 
     belongs_to(
-        :subject_rating,
+        :subject,
         class_name:  'User',
         foreign_key: 'user_id',
-        inverse_of:  :subject_rating,
+        inverse_of:  :received_ratings,
         dependent:   :destroy
     )
 
