@@ -26,8 +26,8 @@
                         <td><%= listing.game.title %></td>
                         <td><%= listing.condition %></td>
                         <td><%= listing.description %></td>
-                        <td><%= button_to "Edit Listing"%></td>
-                        <td><%= button_to "View Offers"%></td>
+                        <td><%= link_to "Edit Listing", edit_listing_path(current_user, listing), class: 'btn btn-outline-secondary'%></td>
+                        <td><%= link_to "View Offers"%></td>
                     </tr>
 
                 <% end %>
