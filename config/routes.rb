@@ -12,5 +12,9 @@ Rails.application.routes.draw do
   get 'listing/:listing_id/offers', to: 'offers#index', as: 'offers'
   get 'listing/:listing_id/offers/new', to: 'offers#new', as: 'new_offer'
   post 'listing/:listing_id/offers', to: 'offers#create'
+  delete 'listing/:listing_id/offers/:id', to: 'offers#destroy', as: 'cancel_offer'
+
+  get 'profile/:profile_id/offers', to: 'offers#index', as: 'my_offers'
+
 
 end

@@ -1,6 +1,6 @@
 class OffersController < ApplicationController
   before_action :authenticate_user!, except: [:games_index]
-  before_action :require_permission, except: [:games_index, :new]
+  before_action :require_permission, except: [:games_index, :new, :index, :destroy]
 
   def require_permission
     @listing = Listing.find(params[:listing_id]) # do not allow Listing owners to make offers on their own listings
@@ -8,6 +8,12 @@ class OffersController < ApplicationController
       flash[:error] = "You do not have permission to do that"
       redirect_to game_path(Listing.find(params[:listing_id]).game_id)
     end
+  end
+
+  def index
+    @owner = User.find(params[:profile_id])
+    @offers = @owner.offers
+    render :index
   end
 
   # disallow rendering this page if it listing_id doesn't exist/wasn't accessed via link on offers/new.html.erb
@@ -40,5 +46,13 @@ class OffersController < ApplicationController
       flash.now[:error] = "Unable to save new offer"
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @listing = Listing.find(params[:listing_id])
+    @offer = Offer.find(params[:id])
+    @offer.destroy
+    flash[:success] = "Offer successfully canceled"
+    redirect_to my_offers_path(current_user), status: :see_other
   end
 end

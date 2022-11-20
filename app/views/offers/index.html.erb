@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <!-- include user header here -->
+        <h3>My Offers</h3>
+        <table class="table table-striped"> <!-- styling to match previously created index, can change as necessary -->
+            <thead class="table table-dark">
+                <tr>
+                    <th>Game They Have</th>
+                    <th>Game You Have</th>
+                    <th>Description</th>
+                    <th><!-- Cancel Offer column --></th>
+                </tr>
+            <thead>
+            <tbody>
+                <% @offers.each do |o| %>
+                    <tr>
+                        <td><%= o.listing.game.title %></td>
+                        <td><%= o.game.title %></td>
+                        <td><%= o.description %></td>
+                        <td><%= button_to "Cancel Offer", cancel_offer_path(o.listing.id, o.id), method: :delete, data: { turbo: false } %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </body>
+</html>
