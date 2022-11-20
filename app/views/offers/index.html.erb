@@ -3,7 +3,8 @@
         <title></title>
     </head>
     <body>
-        <!-- include user header here -->
+        <!-- include user header here via views/layouts/application.html.erb conditional checking current_page?(path) -->
+        <%= render "shared/header" %>
         <h3>My Offers</h3>
         <table class="table table-striped"> <!-- styling to match previously created index, can change as necessary -->
             <thead class="table table-dark">

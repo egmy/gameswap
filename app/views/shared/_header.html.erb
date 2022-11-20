@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-3" id="picture and name">
+                    <% @user = User.find(params[:profile_id]) %>
+                    <%= image_tag @user.image, class: "img-fluid w-50 rounded-circle" %>
+                    <br>
+                    <%= @user.username %>
+                </div>
+                <div class="col-6" id="rating_description">
+                    <!-- rating goes here -->[RATING]<br>
+                    <p><%= @user.description %></p>
+                    <% if @user == current_user %>
+                        <%= link_to "Edit Profile" %>
+                    <% end %>
+                </div>
+                <div class="col-3" id="offers_trade_history">
+                    <% if @user == current_user %>
+                        <%= link_to "My Offers", my_offers_path(@user.id) %>
+                        <br>
+                        <%= link_to "Trade History" %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
