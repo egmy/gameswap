@@ -3,7 +3,6 @@
         <title>Games</title>
     </head>
     <body>
-        <%= params[:listing_id] %>
         <% @games.each do |g| %>
             <%= link_to g.title, new_offer_path(:listing_id => params[:listing_id], :game_id => g) %>
             <br>

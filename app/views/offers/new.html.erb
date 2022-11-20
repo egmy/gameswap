@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Page Title Goes Here</title><!-- TBD; not in WF -->
+        <title>Make an Offer</title>
     </head>
     <body>
         <%= bootstrap_form_with model: @offer, url: offers_path, method: :post, data: { turbo: false } do |f| %> <%# probably a more streamlined way to use form fields outside of a block, but this works %>
@@ -41,14 +41,14 @@
                             <%= image_tag "covers/NO_COVER.png", class: 'card-img-top' %>
                         <% end %>
                         <%# to-do: js implementation of autocomplete (refer to 4040 notes 11/16) %>
-                        <% if params[:game_id] %>
-                            <%# <%= f.text_field :title, value: Game.find(params[:game_id]).title %> %>
+                        <% if params[:game_id] %> <%# if a game was selected from the list, must ensure that the title doesn't change %>
+                            <% offer_game_title = Game.find(params[:game_id]).title %> <%# single lookup %>
+                            <h2><%= offer_game_title %></h2>
+                            <%= hidden_field_tag :title, offer_game_title %> <%# pass :title %>
                         <% else %>
-                            <%# <%= f.text_field :title, value: "Search for your game title" %> %>
-                            <%= f.number_field :game_id, value: "Enter a game id" %>
+                            <%= text_field_tag :title, "Exact Game Title..." %>
                         <% end %>
-
-                        <%= link_to "Choose from a list", games_index_path(:listing_id => params[:listing_id]) %> <%# pass listing_id to games_index so it can redierct back to this page (using the correct listing_id that the offer is being made for) %>
+                        <br><%= link_to "Choose from a list", games_index_path(:listing_id => params[:listing_id]) %> <%# pass listing_id to games_index so it can redierct back to this page (using the correct listing_id that the offer is being made for) %>
                         <br><br><!-- formatting -->
                         <%= f.select :condition, %W(New #{"Used-Like New"} #{"Used-Very Good"} Used-Good Used-Acceptable) %>
                         <%= f.text_area :description, value: "This game is in mint condition..." %>
