@@ -41,7 +41,7 @@ class Offer < ApplicationRecord
   )
 
   belongs_to(
-    :user,
+    :owner,
     class_name: 'User',
     foreign_key: 'user_id',
     inverse_of: :offers

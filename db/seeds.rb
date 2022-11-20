@@ -232,7 +232,7 @@
         status: "active",
         listing: nba2k_alice_listing,
         game: coldWar,
-        user: alice
+        owner: alice
     )
     offer_2 = Offer.create!(
         accepted: false,
@@ -241,7 +241,7 @@
         status: "inactive",
         listing: nba2k_alice_listing,
         game: gta5,
-        user: alice
+        owner: alice
     )
     offer_3 = Offer.create!(
         accepted: true,
@@ -250,7 +250,7 @@
         status: "inactive",
         listing: cod_alice,
         game: halo5,
-        user: alice
+        owner: alice
     )
 
 

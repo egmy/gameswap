@@ -37,7 +37,7 @@ class User < ApplicationRecord
         :offers,
         class_name: 'Offer',
         foreign_key: 'user_id',
-        inverse_of: :user,
+        inverse_of: :owner,
         dependent: :destroy
     )
 
