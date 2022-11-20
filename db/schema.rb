@@ -30,6 +30,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_19_040030) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "game_id"
+    t.index ["game_id"], name: "index_listings_on_game_id"
+    t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
   create_table "offers", force: :cascade do |t|
@@ -39,6 +43,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_19_040030) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "listing_id"
+    t.bigint "game_id"
+    t.bigint "user_id"
+    t.index ["game_id"], name: "index_offers_on_game_id"
+    t.index ["listing_id"], name: "index_offers_on_listing_id"
+    t.index ["user_id"], name: "index_offers_on_user_id"
   end
 
   create_table "ratings", force: :cascade do |t|
@@ -60,7 +70,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_19_040030) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "games", "tags"
+  add_foreign_key "listings", "games"
+  add_foreign_key "listings", "users"
+  add_foreign_key "offers", "games"
+  add_foreign_key "offers", "listings"
+  add_foreign_key "offers", "users"
 end

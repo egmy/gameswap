@@ -89,3 +89,9 @@ gem 'bootswatch', github: 'thomaspark/bootswatch'
 
 # Bootstrap styled forms
 gem 'bootstrap_form', '~> 5.1'
+
+# Authentication
+gem 'devise'
+
+# Searching
+gem "ransack", "~> 3.2"

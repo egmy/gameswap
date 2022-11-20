@@ -1,0 +1,70 @@
+<style>
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center
+      }
+      .image {
+        flex-basis: 30%
+      }
+      .text {
+        font-size: 20px;
+        padding-left: 20px;
+      }
+      .text2 {
+        text-align: right;
+      }
+    </style>
+
+<div class="max-w-lg mr-auto mt-16 text-center">
+ <h1><%= @game.title %></h1>
+</div>
+
+
+<div class="container">
+    <div class="image">
+    <%= image_tag "covers/" + @game.image, size: '400x520' %>
+    </div>
+    <div class="text">
+          <%= @game.description%>
+    </div>
+</div>
+
+
+ 
+ <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <h1> Trades </h1>
+        </div>
+        <div class="col-6 col-md-4 text-end">
+            <%= link_to 'Create New Listing', new_game_listing_path, class: 'btn btn-primary' %>
+        </div>
+    </div>
+</div>
+
+
+
+<table class="table table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>Username</th>
+      <th>Condition</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @listings.each_with_index do |listing, index| %>
+      <tr>
+        <td><%= index+1 %>. <%= link_to listing.user.username%><br></td>
+        <td><%= listing.condition%></td>
+        <td><%= link_to 'Make Offer', class: "btn btn-primary" %></td> 
+      </tr>
+      <tr>
+        <td><%= listing.description%></td>
+        <td></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

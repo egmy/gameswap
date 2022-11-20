@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :users
+  root to: redirect('index')
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get 'index', to: 'games#index', as: 'games'
+  get 'index/:game_id', to: 'listings#index', as: 'game'
+  post 'index/:game_id', to: 'listings#create'
+  get 'index/:game_id/new', to: 'listings#new', as: 'new_game_listing'
+
 end

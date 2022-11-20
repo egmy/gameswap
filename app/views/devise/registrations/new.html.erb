@@ -1,0 +1,46 @@
+
+<div class="container d-flex justify-content-center align-items-center", style="height: 90vh";>
+
+  <div class= "w-25">
+
+    <h2 class='text-center'>Sign Up</h2>
+
+    <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { data: { turbo: false} } ) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="mb-3">
+        <%= f.text_field :username, class: 'form-control'%>
+      </div>
+
+      <div class="mb-3">
+        <%= f.email_field :email, class:'form-control', placeholder: 'name123@email.com' %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.password_field :password, class:'form-control' %>
+        <% if @minimum_password_length %>
+          <em class="form-text"><%= @minimum_password_length %> characters minimum</em>
+        <% end %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.password_field :password_confirmation, class:'form-control' %>
+      </div>
+
+      <div class="mb-4 text-center">
+        <%= f.submit "Sign up", class:'btn btn-primary w-75' %>
+      </div>
+    <% end %>
+
+    <p class="text-center mb-0">
+      <em>
+        Already have an account?
+        <%= link_to "Sign in here", new_session_path(resource_name) %>
+      </em>
+    </p>
+
+    <!-- <%= render "devise/shared/links" %> -->
+
+  </div>
+
+</div>
