@@ -6,14 +6,16 @@
         username: 'alice',
         email: 'alice@email.com',
         password: 'password123',
-        image: 'user_icon.png'
+        image: 'user_icon.png',
+        description: "This is Alice's description."
     )
 
     bob=User.create!(
         username: 'bob',
         email: 'bob@email.com',
         password: 'password234',
-        image: 'user_icon.png'
+        image: 'user_icon.png',
+        description: "This is Bob's description."
     )
 
 
@@ -252,9 +254,9 @@
         condition: 'Used-Good',
         status: 'active',
         user: bob,
-        game: rocketLeague 
+        game: rocketLeague
     )
-    
+
 
 
 
