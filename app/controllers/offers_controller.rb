@@ -1,5 +1,5 @@
 class OffersController < ApplicationController
-  # before_action :authenticate_user!, except: [:games_index]
+  before_action :authenticate_user!, except: [:games_index]
   # before_action :require_permission, except: [:games_index, :new]
 
   # def require_permission

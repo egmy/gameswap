@@ -8,7 +8,7 @@
     <div class="d-flex btn-group">
       <% if user_signed_in? %>
         <%= link_to edit_user_registration_path, class: "#{active_class(edit_user_registration_path)}" do %>
-          <%= image_tag 'user_icon.png', class: 'btn btn-outline-dark', height: '38'  %>
+          <%= image_tag current_user.image, class: 'btn btn-outline-dark', height: '38'  %>
         <% end %>        
         <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'btn btn-outline-dark' %>
       <% else %>

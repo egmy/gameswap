@@ -9,6 +9,13 @@
         image: 'user_icon.png'
     )
 
+    bob=User.create!(
+        username: 'bob',
+        email: 'bob@email.com',
+        password: 'password234',
+        image: 'user_icon.png'
+    )
+
 
 # TAGS
 
@@ -206,6 +213,24 @@
 
 # Listings
 
+    cod_bob=cod_alice = Listing.create!(
+        description: 'I would like an indie game in exchange for this COD. Condition is new, never opened.',
+        condition: 'New',
+        status: 'active',
+        user: bob,
+        game: blackOps4
+
+    )
+
+    cod_alice = Listing.create!(
+        description: 'I would like an indie game in exchange for this COD. I enjoyed it.  Condition is fine. Packaging is damaged',
+        condition: 'Used-Acceptable',
+        status: 'active',
+        user: alice,
+        game: blackOps4
+
+    )
+
     nba2k_alice_listing = Listing.create!(
         description: 'I would like a sports game in exchange for this NBA2K. Condition is good, there are minor scratches',
         condition: 'Used-Good',
@@ -215,13 +240,23 @@
 
     )
 
-    cod_alice=Listing.create!(
-        description: 'I would like a sports game in exchange for this Rocket Leage. Condition is good, there are minor scratches',
+    rocket_league_alice=Listing.create!(
+        description: 'I would like a sports game in exchange for this Rocket League. Condition is good, there are minor scratches',
         condition: 'Used-Good',
         status: 'active',
         user: alice,
         game: rocketLeague
     )
+    rocket_league_bob=Listing.create!(
+        description: 'I would like an indie game in exchange for this Rocket League. Condition is good, there are minor scratches',
+        condition: 'Used-Good',
+        status: 'active',
+        user: bob,
+        game: rocketLeague 
+    )
+    
+
+
 
 # OFFERS
 
@@ -252,6 +287,8 @@
         game: halo5,
         owner: alice
     )
+
+
 
 
 

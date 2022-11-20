@@ -24,6 +24,10 @@ class User < ApplicationRecord
     # Include default devise modules. Others available are:
     # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
     devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
+    validates :username, presence: true
+
+    attribute :image, default: -> {'user_icon.png'}
+    attribute :description, default: -> {'Welcome to my profile!'}
 
     has_many(
         :listings,

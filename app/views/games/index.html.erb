@@ -41,12 +41,12 @@
                 <% @games.each do |game| %>
                     <div class="col m-auto">
 
-                        <%= link_to href='#', class: 'text-decoration-none' do %>
+                        <%= link_to href= game_path(game), class: 'text-decoration-none' do %>
 
                             <div class="card" style="width: 15rem;">
                                 <%= image_tag "covers/" + game.image, class: "card-img-top", size: '175x280'   %>
                                 <div class="card-body bg-light">
-                                    <p class="card-text" style="font-size: 13px"><%= link_to game.title, game_path(game) %> </p>
+                                    <p class="card-text" style="font-size: 13px"><%= game.title %> </p>
                                 </div>   
                             </div>
                         <% end %>
