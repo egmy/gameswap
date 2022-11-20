@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   delete 'listing/:listing_id/offers/:id', to: 'offers#destroy', as: 'cancel_offer'
 
   get 'profile/:profile_id/offers', to: 'offers#index', as: 'my_offers'
+  get 'profile/:profile_id/listings', to: 'listings#home', as: 'my_listings'
 
 
 end

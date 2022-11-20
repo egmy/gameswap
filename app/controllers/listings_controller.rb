@@ -6,6 +6,12 @@ class ListingsController < ApplicationController
       @listings = @game.listings
       render :index
     end
+    
+    def home
+      @owner= User.find(params[:profile_id])
+      @listings = @owner.listings
+      render :home
+    end
 
 
     def new
