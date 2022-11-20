@@ -57,6 +57,8 @@ class ListingsController < ApplicationController
         render :edit, status: :unprocessable_entity
       end
     end
+
+    
     def destroy
       @owner = User.find(params[:profile_id])
       @listing= @owner.listings.find(params[:id])
