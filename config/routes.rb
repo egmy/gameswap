@@ -18,5 +18,10 @@ Rails.application.routes.draw do
   get 'profile/:profile_id/offers', to: 'offers#index', as: 'my_offers'
   get 'profile/:profile_id/listings', to: 'listings#home', as: 'my_listings'
 
+  get 'profile/:profile_id/listings/:id/edit', to: 'listings#edit', as: 'edit_listing'
+  get 'profile/:profile_id/listings/:id', to: 'listings#show', as: 'show_listing'
+  patch 'profile/:profile_id/listings/:id', to: 'listings#update'
+  delete 'profile/:profile_id/listings/:id', to: 'listings#destroy'
+
 
 end
