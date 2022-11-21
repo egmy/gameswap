@@ -46,6 +46,13 @@ class ListingsController < ApplicationController
       render :show
     end
 
+    def listing_offers
+      @user=User.find(params[:profile_id])
+      @listing = Listing.find(params[:id])
+      @offers=@listing.offers
+      render :listing_offers
+    end 
+
     def update
       @owner = current_user
       @listing= @owner.listings.find(params[:id])
