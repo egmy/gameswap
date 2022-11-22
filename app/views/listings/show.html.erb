@@ -1,0 +1,30 @@
+<style>
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center
+      }
+      .image {
+        flex-basis: 30%
+      }
+      .text {
+        font-size: 20px;
+        padding-left: 20px;
+      }
+</style>
+<div class="max-w-lg mr-auto mt-16 text-center">
+ <h1><%= @listing.game.title %></h1>
+</div>
+
+
+<div class="container">
+    <div class="image">
+    <%= image_tag "covers/" + @listing.game.image, size: '400x520' %>
+    </div>
+    <div class="text">
+          <%= "Condition: "+ @listing.condition%>
+          <br><br>
+          <%= "Description: "+ @listing.description%>
+
+    </div>
+</div>

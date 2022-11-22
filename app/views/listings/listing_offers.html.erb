@@ -1,0 +1,29 @@
+ 
+ 
+ 
+         <h3> <%= @listing.game.title %> </h3>
+        <table class="table table-striped">
+            <thead class="table table-dark">
+                <tr>
+                    <th>Username</th>
+                    <th>Game Name</th>
+                    <th>Condition</th>
+                    <th>Description</th>
+                    <th><!-- Edit Listing --></th>
+                    <th><!-- View Offers --></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @offers.each do |offer| %>
+                    <tr>
+                        <td><%= offer.owner.username %></td>
+                        <td><%= offer.game.title %></td>
+                        <td><%= offer.condition %></td>
+                        <td><%= offer.description %></td>
+                        <td><%= link_to "Accept", class: 'btn btn-outline-secondary'%></td>
+                        <td><%= link_to "Decline", class: 'btn btn-outline-secondary' %></td>
+                    </tr>
+
+                <% end %>
+            </tbody>
+       </table>

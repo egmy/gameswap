@@ -6,14 +6,16 @@
         username: 'alice',
         email: 'alice@email.com',
         password: 'password123',
-        image: 'user_icon.png'
+        image: 'user_icon.png',
+        description: "This is Alice's description."
     )
 
     bob=User.create!(
         username: 'bob',
         email: 'bob@email.com',
         password: 'password234',
-        image: 'user_icon.png'
+        image: 'user_icon.png',
+        description: "This is Bob's description."
     )
 
 
@@ -252,9 +254,9 @@
         condition: 'Used-Good',
         status: 'active',
         user: bob,
-        game: rocketLeague 
+        game: rocketLeague
     )
-    
+
 
 
 
@@ -267,7 +269,7 @@
         status: "active",
         listing: nba2k_alice_listing,
         game: coldWar,
-        user: alice
+        owner: alice
     )
     offer_2 = Offer.create!(
         accepted: false,
@@ -276,7 +278,7 @@
         status: "inactive",
         listing: nba2k_alice_listing,
         game: gta5,
-        user: alice
+        owner: alice
     )
     offer_3 = Offer.create!(
         accepted: true,
@@ -285,7 +287,7 @@
         status: "inactive",
         listing: cod_alice,
         game: halo5,
-        user: alice
+        owner: alice
     )
 
 
