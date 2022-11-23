@@ -13,7 +13,7 @@ class TagTest < ActiveSupport::TestCase
 
   test 'fixtures are valid' do
     tags.each do |tag|
-      assert tag.valid?
+      assert tag.valid?, tag.errors.full_messages.inspect
     end
   end
 

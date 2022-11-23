@@ -26,7 +26,7 @@ class UserTest < ActiveSupport::TestCase
   
   test 'fixtures are valid' do
     users.each do |user|
-      assert user.valid?
+      assert user.valid?, user.errors.full_messages.inspect
     end
   end
 

@@ -21,8 +21,7 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 
-one:
-  id: 1
+john:
   username: johnw
   email: john@email.com
   password: 123123
@@ -30,8 +29,7 @@ one:
   description: Welcome to my page. I love mainly sports games and FPS games
   image: user_icon.png
 
-two:
-  id: 2
+tom:
   username: tommyboy
   email: tom@email.com
   password: password

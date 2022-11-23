@@ -24,7 +24,11 @@
 require "test_helper"
 
 class ListingTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test 'fixtures are valid' do
+    listings.each do |listing|
+      assert listing.valid?, listing.errors.full_messages.inspect
+    end
+  end
+  
 end

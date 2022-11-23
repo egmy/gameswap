@@ -5,7 +5,7 @@ class ListingsControllerTest < ActionDispatch::IntegrationTest
   
   setup do
     get new_user_session_url
-    sign_in users(:one)
+    sign_in users(:john)
     post user_session_url
 
   end
@@ -17,7 +17,7 @@ class ListingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get home' do
-    user = users(:one)
+    user = users(:john)
     get my_listings_url(user)
     assert_response :success
   end

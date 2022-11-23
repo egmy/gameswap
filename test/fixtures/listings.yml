@@ -22,12 +22,15 @@
 #  fk_rails_...  (user_id => users.id)
 #
 
-one:
-  description: MyText
-  condition: MyString
-  status: MyString
+john_listing:
+  user: john
+  game: forza
+  description: This game is barely used. I would like a shooter game
+  condition: New
 
-two:
-  description: MyText
-  condition: MyString
-  status: MyString
+tom_listing:
+  user: tom
+  description: two
+  game: destiny
+  description: This game has normal wear and tear. I want a racing game.
+  condition: Used
