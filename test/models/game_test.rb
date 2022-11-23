@@ -21,7 +21,11 @@
 require "test_helper"
 
 class GameTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  
+  test 'fixtures are valid' do
+    games.each do |game|
+      assert game.valid?, game.errors.full_messages.inspect
+    end
+  end
+
 end

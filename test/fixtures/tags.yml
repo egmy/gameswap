@@ -8,8 +8,8 @@
 #  updated_at :datetime         not null
 #
 
-one:
-  name: MyString
+racing:
+  name: Racing
 
-two:
-  name: MyString
+shooter:
+  name: Shooter
