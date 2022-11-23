@@ -1,7 +1,6 @@
 require "test_helper"
 
 class ListingsControllerTest < ActionDispatch::IntegrationTest
-  include Devise::Test::IntegrationHelpers
   
   setup do
     get new_user_session_url
