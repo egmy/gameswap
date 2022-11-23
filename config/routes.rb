@@ -14,9 +14,11 @@ Rails.application.routes.draw do
   post 'listing/:listing_id/offers', to: 'offers#create'
   delete 'listing/:listing_id/offers/:id', to: 'offers#destroy', as: 'cancel_offer'
 
+  get 'profile/edit', to: 'profile#edit', as: 'edit_profile'
   get 'profile/:profile_id', to: 'profiles#show', as: 'profile' # routes for my_offers, incoming_offers, listings, trade_history
   get 'profile/:profile_id/offers', to: 'offers#index', as: 'my_offers'
   get 'profile/:profile_id/listings', to: 'listings#home', as: 'my_listings'
+
 
 
 end

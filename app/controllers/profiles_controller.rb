@@ -5,4 +5,9 @@ class ProfilesController < ApplicationController
         @user = User.find(params[:profile_id])
         render :show
     end
+
+    def edit
+        @user = current_user
+        render :edit
+    end
 end
