@@ -1,7 +1,11 @@
 require "test_helper"
 
 class GamesControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test 'should get games' do 
+    get games_url
+    assert_response :success
+  end
+
+  
 end

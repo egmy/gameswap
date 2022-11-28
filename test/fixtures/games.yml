@@ -19,12 +19,14 @@
 #  fk_rails_...  (tag_id => tags.id)
 #
 
-one:
-  title: MyString
-  description: MyText
-  image: MyString
+forza:
+  title: Forza
+  description: This is an action packed racing game
+  image: Forza Horizon 3.png
+  tag: racing
 
-two:
-  title: MyString
-  description: MyText
-  image: MyString
+destiny:
+  title: Destiny
+  description: This is a fantastical FPS. Save the light.
+  image: Destiny.png
+  tag: shooter
