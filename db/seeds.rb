@@ -290,6 +290,34 @@
         owner: alice
     )
 
+    offer_4 = Offer.create!(
+        accepted: true,
+        condition: "Used-Like New",
+        description: "The case is scuffed, but the game is in mint condition.",
+        status: "active",
+        listing: cod_alice,
+        game: nba2k21,
+        owner: alice
+    )
+    offer_5 = Offer.create!(
+        accepted: true,
+        condition: "Used-Like New",
+        description: "In okay condition, do not care what game",
+        status: "active",
+        listing: nba2k_alice_listing,
+        game: halo5,
+        owner: alice
+    )
+    offer_6 = Offer.create!(
+        accepted: true,
+        condition: "Used-Like New",
+        description: "In great condition, would like a sports game",
+        status: "active",
+        listing: cod_alice,
+        game: halo5,
+        owner: alice
+    )
+
 
 
 
