@@ -16,13 +16,20 @@
             <tbody>
                 <% @offers.each do |offer| %>
                     <tr>
+                    <% if offer.status!="declined" %>
                         <td><%= offer.owner.username %></td>
                         <td><%= offer.game.title %></td>
                         <td><%= offer.condition %></td>
                         <td><%= offer.description %></td>
-                        <td><%= link_to "Accept", class: 'btn btn-outline-secondary'%></td>
-                        <td><%= link_to "Decline", class: 'btn btn-outline-secondary' %></td>
+                        <td><%= offer.status %></td>
+
+                        <%= form_with model: offer, method: :patch, url: listing_offer_path(offer.owner, @listing, offer), data: { turbo: false } do |f| %>
+                        <td><%= f.submit "Accept",  name: "status", class: 'btn btn-outline-secondary'%></td>
+                        <td><%= f.submit "Decline", name: "status",  class: 'btn btn-outline-secondary'%></td>
+                        <% end %>
+
                     </tr>
+                    <% end %>
 
                 <% end %>
             </tbody>

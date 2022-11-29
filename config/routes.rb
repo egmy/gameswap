@@ -25,6 +25,10 @@ Rails.application.routes.draw do
   delete 'profile/:profile_id/listings/:id', to: 'listings#destroy'
 
   get 'profile/:profile_id/listings/:id/offers', to: 'listings#listing_offers', as: 'listing_offers'
+  patch 'profile/:profile_id/listings/:listing_id/offers/:id', to: 'listings#accept_decline', as: 'listing_offer'
+
+
+
 
 
 end

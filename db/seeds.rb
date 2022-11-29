@@ -245,7 +245,7 @@
     rocket_league_alice=Listing.create!(
         description: 'I would like a sports game in exchange for this Rocket League. Condition is good, there are minor scratches',
         condition: 'Used-Good',
-        status: 'active',
+        status: 'inactive',
         user: alice,
         game: rocketLeague
     )
@@ -275,7 +275,7 @@
         accepted: false,
         condition: "Used-Acceptable",
         description: "My dog ate it, but threw it back up. It still works.",
-        status: "inactive",
+        status: "declined",
         listing: nba2k_alice_listing,
         game: gta5,
         owner: alice
@@ -284,7 +284,7 @@
         accepted: true,
         condition: "Used-Like New",
         description: "This is the collector's edition of Barbie and Her Sisters: Puppy Rescue. The case is scuffed, but the game is in mint condition.",
-        status: "inactive",
+        status: "active",
         listing: cod_alice,
         game: halo5,
         owner: alice
