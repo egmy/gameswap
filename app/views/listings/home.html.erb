@@ -24,7 +24,6 @@
                         <td><%= listing.description %></td>
                         <td><%= link_to "Edit Listing", edit_listing_path(current_user, listing), class: 'btn btn-outline-secondary'%></td>
                         <td><%= link_to "View Offers", listing_offers_path(current_user, listing),class: 'btn btn-outline-secondary'%></td>
-                        <td><%= listing.status %></td>
                     </tr>
                     <% end %>
 
