@@ -3,13 +3,13 @@
 
   <h3><%=@listing.game.title%></h3>
 
-  <%= image_tag "covers/" + @listing.game.image, size: '400x520' %>
+<%= image_tag "covers/" + @listing.game.image, size: '400x520' %>
 
 
 <%= bootstrap_form_with model: @listing, method: :patch, url: show_listing_path(@owner, @listing), data: { turbo: false } do |f| %>
-  <%= f.select :condition, ["New", "Used-Like New", "Used-Very Good", "Used-Good", "Used-Acceptable"]%>
-      <%= f.text_field :description%>
-      <%= f.submit %>
+    <%= f.select :condition, ["New", "Used-Like New", "Used-Very Good", "Used-Good", "Used-Acceptable"]%>
+    <%= f.text_field :description%>
+    <%= f.submit %>
 <% end %>
 
 <p class="mt-3">

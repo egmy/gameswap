@@ -55,7 +55,7 @@
                         <%= link_to "Choose from a list", games_index_path(:listing_id => params[:listing_id]) %> <%# pass listing_id to games_index so it can redierct back to this page (using the correct listing_id that the offer is being made for) %>
                         <br><br><!-- formatting -->
                         <%= f.select :condition, %W(New #{"Used-Like New"} #{"Used-Very Good"} Used-Good Used-Acceptable) %>
-                        <%= f.text_area :description, value: "This game is in mint condition..." %>
+                        <%= f.text_area :description, placeholder: "This game is in mint condition..." %>
                     </div>
                 </div>
             </div>

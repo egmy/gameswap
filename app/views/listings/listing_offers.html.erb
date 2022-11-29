@@ -2,28 +2,40 @@
  
  
          <h3> <%= @listing.game.title %> </h3>
-        <table class="table table-striped">
-            <thead class="table table-dark">
-                <tr>
-                    <th>Username</th>
-                    <th>Game Name</th>
-                    <th>Condition</th>
-                    <th>Description</th>
-                    <th><!-- Edit Listing --></th>
-                    <th><!-- View Offers --></th>
-                </tr>
-            </thead>
-            <tbody>
-                <% @offers.each do |offer| %>
-                    <tr>
-                        <td><%= offer.owner.username %></td>
-                        <td><%= offer.game.title %></td>
-                        <td><%= offer.condition %></td>
-                        <td><%= offer.description %></td>
-                        <td><%= link_to "Accept", class: 'btn btn-outline-secondary'%></td>
-                        <td><%= link_to "Decline", class: 'btn btn-outline-secondary' %></td>
-                    </tr>
+        <style> 
+        header, .row {
+        display: flex;
+        }
+        .btn1 {
+        background-color: green;
+        }
+        .btn2 {
+        background-color: red; 
+        }
 
-                <% end %>
-            </tbody>
-       </table>
+        </style>
+
+    <section>
+    <header style="background-color:Grey; color:Black">
+    <div class="col">Username</div>
+    <div class="col">Game Name</div>
+    <div class="col">Condition</div>
+    <div class="col-4">Description</div>
+    <div class="col"><!-- Accept --></div>
+    <div class="col"><!-- Decline --></div>
+    </header>
+     <% @offers.each do |offer| %>
+    <%= form_with model: offer, method: :patch, url: listing_offer_path(current_user.id, @listing, offer), data: { turbo: false } do |f| %>
+    <div class="row">
+    <% if offer.status=="active" %>
+        <div class="col"><%=offer.owner.username %></div>
+        <div class="col"><%=offer.game.title %></div>
+        <div class="col"><%=offer.condition %></div>
+        <div class="col-4"><%=offer.description %></div>
+        <div class="col"><%=f.submit "Accept",  name: "status", class: 'btn1 btn-outline-secondary', color: 'green'%></div>
+        <div class="col"><%=f.submit "Decline", name: "status",  class: 'btn2 btn-outline-secondary'%></div>
+        <% end %>
+        <% end %>
+    </div>
+    <% end %>
+    </section>

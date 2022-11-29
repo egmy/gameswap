@@ -16,7 +16,8 @@
                 </tr>
             <thead>
             <tbody>
-                <% @listings.each do |listing| %>
+                    <% @listings.each do |listing| %>
+                    <% if listing.status=="active"%>
                     <tr>
                         <td><%= listing.game.title %></td>
                         <td><%= listing.condition %></td>
@@ -24,6 +25,7 @@
                         <td><%= link_to "Edit Listing", edit_listing_path(current_user, listing), class: 'btn btn-outline-secondary'%></td>
                         <td><%= link_to "View Offers", listing_offers_path(current_user, listing),class: 'btn btn-outline-secondary'%></td>
                     </tr>
+                    <% end %>
 
                 <% end %>
             </tbody>

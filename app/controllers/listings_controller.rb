@@ -53,6 +53,27 @@ class ListingsController < ApplicationController
       render :listing_offers
     end 
 
+    def accept_decline
+      @user=User.find(params[:profile_id])
+      @listing = Listing.find(params[:listing_id])
+      @offers=@listing.offers
+      @offer=@listing.offers.find(params[:id])
+
+      if params[:status]=="Accept"
+        @listing.update!(status:"inactive")
+        @offers.each do |offer|
+          offer.update!(status: "declined")
+        end
+        @offer.update!(status:"accepted")
+        flash[:success] = "Offer successfully accepted"
+        redirect_to my_listings_path(@user)
+      elsif params[:status]=="Decline"
+        @offer.update!(status:"declined")
+        flash[:success] = "Offer successfully declined"
+        redirect_to listing_offers_path(@user, @listing)
+      end 
+    end
+
     def update
       @owner = current_user
       @listing= @owner.listings.find(params[:id])
