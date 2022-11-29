@@ -25,6 +25,7 @@ class ListingsController < ApplicationController
       @game = Game.find(params[:game_id])
       @listing= @game.listings.build(params.require(:listing).permit(:condition, :description))
       @listing.user=current_user
+      @listing.status="active"
       if @listing.save!
 
           flash[:success] = "Listing saved successfully"
