@@ -6,14 +6,16 @@
         username: 'alice',
         email: 'alice@email.com',
         password: 'password123',
-        image: 'user_icon.png'
+        image: 'user_icon.png',
+        description: "This is Alice's description."
     )
 
     bob=User.create!(
         username: 'bob',
         email: 'bob@email.com',
         password: 'password234',
-        image: 'user_icon.png'
+        image: 'user_icon.png',
+        description: "This is Bob's description."
     )
 
 
@@ -243,7 +245,7 @@
     rocket_league_alice=Listing.create!(
         description: 'I would like a sports game in exchange for this Rocket League. Condition is good, there are minor scratches',
         condition: 'Used-Good',
-        status: 'active',
+        status: 'inactive',
         user: alice,
         game: rocketLeague
     )
@@ -252,9 +254,9 @@
         condition: 'Used-Good',
         status: 'active',
         user: bob,
-        game: rocketLeague 
+        game: rocketLeague
     )
-    
+
 
 
 
@@ -267,25 +269,53 @@
         status: "active",
         listing: nba2k_alice_listing,
         game: coldWar,
-        user: alice
+        owner: alice
     )
     offer_2 = Offer.create!(
         accepted: false,
         condition: "Used-Acceptable",
         description: "My dog ate it, but threw it back up. It still works.",
-        status: "inactive",
+        status: "declined",
         listing: nba2k_alice_listing,
         game: gta5,
-        user: alice
+        owner: alice
     )
     offer_3 = Offer.create!(
         accepted: true,
         condition: "Used-Like New",
         description: "This is the collector's edition of Barbie and Her Sisters: Puppy Rescue. The case is scuffed, but the game is in mint condition.",
-        status: "inactive",
+        status: "active",
         listing: cod_alice,
         game: halo5,
-        user: alice
+        owner: alice
+    )
+
+    offer_4 = Offer.create!(
+        accepted: true,
+        condition: "Used-Like New",
+        description: "The case is scuffed, but the game is in mint condition.",
+        status: "active",
+        listing: cod_alice,
+        game: nba2k21,
+        owner: alice
+    )
+    offer_5 = Offer.create!(
+        accepted: true,
+        condition: "Used-Like New",
+        description: "In okay condition, do not care what game",
+        status: "active",
+        listing: nba2k_alice_listing,
+        game: halo5,
+        owner: alice
+    )
+    offer_6 = Offer.create!(
+        accepted: true,
+        condition: "Used-Like New",
+        description: "In great condition, would like a sports game",
+        status: "active",
+        listing: cod_alice,
+        game: halo5,
+        owner: alice
     )
 
 

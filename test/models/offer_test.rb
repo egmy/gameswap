@@ -28,7 +28,10 @@
 require "test_helper"
 
 class OfferTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  
+  test 'fixtures are valid' do
+    offers.each do |offer|
+      assert offer.valid?, offer.errors.full_messages.inspect
+    end
+  end
 end

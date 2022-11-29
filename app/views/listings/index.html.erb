@@ -31,7 +31,7 @@
 </div>
 
 
- 
+
  <div class="container-fluid">
     <div class="row">
         <div class="col-md-8">
@@ -58,7 +58,11 @@
       <tr>
         <td><%= index+1 %>. <%= link_to listing.user.username%><br></td>
         <td><%= listing.condition%></td>
-        <td><%= link_to 'Make Offer', class: "btn btn-primary" %></td> 
+        <td>
+          <% if listing.user != current_user %><!-- only display make new offer for other users -->
+            <%= link_to 'Make Offer', new_offer_path(listing.id), class: "btn btn-primary" %>
+          <% end %>
+        </td>
       </tr>
       <tr>
         <td><%= listing.description%></td>

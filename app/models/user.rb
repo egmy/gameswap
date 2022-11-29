@@ -41,8 +41,24 @@ class User < ApplicationRecord
         :offers,
         class_name: 'Offer',
         foreign_key: 'user_id',
-        inverse_of: :user,
+        inverse_of: :owner,
         dependent: :destroy
+    )
+
+    has_many(
+        :authored_ratings,
+        class_name:  'Rating',
+        foreign_key: 'user_id',
+        inverse_of:  :author,
+        dependent:   :destroy
+    )
+
+    has_many(
+        :received_ratings,
+        class_name:  'Rating',
+        foreign_key: 'user_id',
+        inverse_of:  :subject,
+        dependent:   :destroy
     )
 
 end

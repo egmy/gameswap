@@ -41,23 +41,22 @@ class Offer < ApplicationRecord
   )
 
   belongs_to(
-    :user,
+    :owner,
     class_name: 'User',
     foreign_key: 'user_id',
     inverse_of: :offers
   )
 
-  # UNCOMMENT BELOW ONCE RATINGS AND ASSOCIATION EXISTS
-  # has_many(
-  #   :ratings,
-  #   class_name: 'Rating',
-  #   foreign_key: 'offer_id',
-  #   inverse_of: :offer,
-  #   dependent: :destroy
-  # )
+  has_many(
+    :ratings,
+    class_name: 'Rating',
+    foreign_key: 'offer_id',
+    inverse_of: :offer,
+    dependent: :destroy
+  )
 
   validates :accepted, presence: false # allow, initialize offers with nil until they're accepted/declined?
   validates :condition, inclusion: { in: %W(New #{"Used-Like New"} #{"Used-Very Good"} Used-Good Used-Acceptable), message: "%{value} is not a valid condition"} # using %W(#{"terms with spaces"}) for clarity, otherwise %w() allows escape
-  validates :status, inclusion: { in: %w(active inactive accepted), message: "{value} is not a valid status"}
+  validates :status, inclusion: { in: %w(active accepted declined), message: "{value} is not a valid status"}
 end
 
