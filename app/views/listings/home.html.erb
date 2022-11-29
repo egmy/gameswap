@@ -22,8 +22,16 @@
                         <td><%= listing.game.title %></td>
                         <td><%= listing.condition %></td>
                         <td><%= listing.description %></td>
+                        <% if listing.user==current_user%>
                         <td><%= link_to "Edit Listing", edit_listing_path(current_user, listing), class: 'btn btn-outline-secondary'%></td>
                         <td><%= link_to "View Offers", listing_offers_path(current_user, listing),class: 'btn btn-outline-secondary'%></td>
+                        <% end %>
+                        <% if listing.user!=current_user%>
+                            <td><%= link_to 'Make Offer', new_offer_path(listing.id), class: "btn btn-primary" %><td>
+                        <% end %>
+
+                        
+
                     </tr>
                     <% end %>
 
