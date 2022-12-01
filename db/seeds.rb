@@ -291,11 +291,6 @@
         game: blackOps3
     )
 
-
-
-
-
-
 # OFFERS
 
     offer_1 = Offer.create!(
