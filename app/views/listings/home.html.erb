@@ -4,7 +4,7 @@
         <title></title>
     </head>
     <body>
-        <h3>My Listings</h3>
+        <h3>Listings</h3>
         <table class="table table-striped">
             <thead class="table table-dark">
                 <tr>
@@ -22,8 +22,15 @@
                         <td><%= listing.game.title %></td>
                         <td><%= listing.condition %></td>
                         <td><%= listing.description %></td>
+                        <% if listing.user==current_user%>
                         <td><%= link_to "Edit Listing", edit_listing_path(current_user, listing), class: 'btn btn-outline-secondary'%></td>
                         <td><%= link_to "View Offers", listing_offers_path(current_user, listing),class: 'btn btn-outline-secondary'%></td>
+                        <% else %>
+                            <td><%= link_to 'Make Offer', new_offer_path(listing.id), class: "btn btn-primary" %><td>
+                        <% end %>
+
+                        
+
                     </tr>
                     <% end %>
 
