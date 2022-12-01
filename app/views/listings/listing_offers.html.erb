@@ -19,7 +19,7 @@
         <%= form_with model: offer, method: :patch, url: listing_offer_path(current_user.id, @listing, offer), data: { turbo: false } do |f| %>
             <div class="row">
             <% if offer.status=="active" %>
-                <div class="col"><%=offer.owner.username %></div>
+                <div class="col"><%=link_to offer.owner.username, my_listings_path(offer.owner) %></div>
                 <div class="col"><%=offer.game.title %></div>
                 <div class="col"><%=offer.condition %></div>
                 <div class="col-4"><%=offer.description %></div>
