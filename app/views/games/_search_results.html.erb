@@ -1,0 +1,8 @@
+<p>Viewing <%= @games.count %> results</p>
+<ul>
+    <% @games.each do |g| %>
+        <li>
+            <%= link_to g.title, game_path(g) %>
+        </li>
+    <% end %>
+</ul>

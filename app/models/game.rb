@@ -20,6 +20,7 @@
 #
 class Game < ApplicationRecord
     validates :title, :image, :description, presence: true
+    validates :title, uniqueness: true
 
     belongs_to(
         :tag,
