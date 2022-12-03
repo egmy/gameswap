@@ -9,12 +9,21 @@ class GamesController < ApplicationController
 
    def search
       @games = Game.where('title ILIKE ?', "%#{params[:title_search]}%") # search query for title passing search_field text
+      @listing = params[:listing_id]
       params[:title_search]
       respond_to do |format|
          format.turbo_stream do
             render turbo_stream: turbo_stream.update("search_results",
-               partial: "games/search_results", locals: {games: @games})#params[:title_search])
+               partial: "games/search_results", locals: {games: @games, listing: @listing}) # partial view "_search_results.html.erb"
+            # if @games.count == 1
+            #    render turbo_stream: turbo_stream.update("new_offer_form", Game.where(title: @games[0]))
+            # end
          end
+
       end
+   end
+
+   def game_is
+
    end
 end

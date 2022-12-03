@@ -3,13 +3,6 @@
         <title>Make an Offer</title>
     </head>
     <body>
-        <%= form_with url: search_games_path, method: :post do |f| %>
-            <%= f.search_field :title_search, oninput: "this.form.requestSubmit()" %>
-        <% end %>
-        <div id="search_results">
-            game...
-        </div>
-        <%= bootstrap_form_with model: @offer, url: offers_path, method: :post, data: { turbo: false } do |f| %> <%# probably a more streamlined way to use form fields outside of a block, but this works %>
             <div class="container">
                 <div class="row">
                     <div class="col">
@@ -34,7 +27,7 @@
                         <div class="row h-50"><!-- formatting --></div>
                         <div>
                             <div class="col">
-                                <%= f.submit %>
+                                <input type="submit" value="Create Offer" form="new_offer_form" %> <!-- submit button outside of form tags by id -->
                                 <%= link_to "Cancel", game_path(Listing.find(params[:listing_id]).game_id), class: 'btn btn-secondary' %>
                             </div>
                         </div>
@@ -46,6 +39,9 @@
                         <% else %>
                             <%= image_tag "covers/NO_COVER.png", class: 'card-img-top' %>
                         <% end %>
+                        <%= render "games/search_form" %>
+                        <%= bootstrap_form_with id: "new_offer_form", model: @offer, url: offers_path, method: :post, data: { turbo: true } do |f| %> <%# probably a more streamlined way to use form fields outside of a block, but this works %>
+
                         <!-- Choose game by title
                             <%# to-do: js implementation of autocomplete (refer to 4040 notes 11/16) %>
                             <% if params[:game_id] %> <%# if a game was selected from the list, must ensure that the title doesn't change %>
