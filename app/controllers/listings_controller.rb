@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  
+
     def index
       @game = Game.find(params[:game_id])
       @listings = @game.listings
@@ -15,11 +15,29 @@ class ListingsController < ApplicationController
 
 
     def new
-      @game = Game.find(params[:game_id]) 
+      @game = Game.find(params[:game_id])
       @listing = Listing.new
       render :new
     end
-
+    # test
+    def alt_new
+      @listing = Listing.new
+      render :alt_new
+    end
+    # test
+    def create_listing
+      @game = Game.find(params[:game_id])
+      @listing= @game.listings.build(params.require(:listing).permit(:condition, :description))
+      @listing.user=current_user
+      @listing.status="active"
+        if @listing.save!
+          flash[:success] = "Listing saved successfully"
+          redirect_to game_url(@game)
+      else
+          flash.now[:error] = "Listing could not be saved"
+          render :new, status: :unprocessable_entity
+        end
+    end
 
     def create
       @game = Game.find(params[:game_id])
@@ -52,7 +70,7 @@ class ListingsController < ApplicationController
       @listing = Listing.find(params[:id])
       @offers=@listing.offers
       render :listing_offers
-    end 
+    end
 
     def accept_decline
       @user=User.find(params[:profile_id])
@@ -72,7 +90,7 @@ class ListingsController < ApplicationController
         @offer.update!(status:"declined")
         flash[:success] = "Offer successfully declined"
         redirect_to listing_offers_path(@user, @listing)
-      end 
+      end
     end
 
     def update
@@ -87,7 +105,7 @@ class ListingsController < ApplicationController
       end
     end
 
-    
+
     def destroy
       @owner = User.find(params[:profile_id])
       @listing= @owner.listings.find(params[:id])

@@ -5,7 +5,7 @@
             <%= link_to highlight(g.title, params[:title_search]), game_path(g) %>
             <%= params %>
             <%= link_to "TRY THIS", new_offer_path(params[:listing_id], :game_id => g.id) %> <!-- listing_id specifically for offers -->
-
+            <%= link_to "OR THIS IF LISTING", new_game_listing_path(:game_id => g.id) %>
             <!-- passing game_id into current page -->
         </li>
     <% end %>
