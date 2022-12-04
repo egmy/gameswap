@@ -1,4 +1,6 @@
 
+<%= @a %>
+
 <div class="container text-center m-3">
 
     <%= search_form_for @q do |f| %>
@@ -31,15 +33,30 @@
                     </div>
                 <% end %>
 
+                <div class="form-check form-switch">
+                    <%= f.check_box :listings_id_not_null, {class: 'form-check-input'}, 1, nil %>
+                    <%= f.label "Games with listings", class: 'form-label'%>
+                </div>
+
                 <%= f.submit name='Apply Filter', name: '', class: 'btn btn-outline-dark' %>
             <% end %>
+
+            <!-- 
+            <%= form_tag games_path, method: :get do %> %>
+                <%= check_box "Only Show Games with Listings", name: :available %> %>
+            <% end %> %>
+            -->
+
         </div>
+
+        
     
 
         <!-- Games container -->
         <div class="container col text-center">
             <div class="container row row-cols-auto gap-3 m-auto ">
                 <% @games.each do |game| %>
+
                     <div class="col m-auto">
 
                         <%= link_to href= game_path(game), class: 'text-decoration-none' do %>
@@ -52,6 +69,7 @@
                             </div>
                         <% end %>
                     </div>
+                    
                 <% end %>
                 <% if @games.count == 0%>
                     <p>No Games Found</p>
