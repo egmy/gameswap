@@ -17,11 +17,7 @@
       }
       table {
         border-collapse: separate;
-        border-spacing: 0 15px;
-      }
-      th {
-        background-color: #4287f5;
-        color: white;
+        border-spacing: 0 10px;
       }
     </style>
 
@@ -39,8 +35,6 @@
     </div>
 </div>
 
-
-
  <div class="container-fluid">
     <div class="row">
         <div class="col-md-8">
@@ -52,12 +46,10 @@
     </div>
 </div>
 
-
-
 <table class="table table-striped">
   <thead class="table-dark">
     <tr>
-      <th>Username</th>
+      <th style="width:80%">Username</th>
       <th>Condition</th>
       <th></th>
     </tr>
@@ -68,9 +60,9 @@
         <td><%= index+1 %>. <%= link_to listing.user.username, my_listings_path(listing.user)%><br></td>
         <td><%= listing.condition%></td>
         <td>
-          <% if listing.user != current_user %><!-- only display make new offer for other users -->
-            <%= link_to 'Make Offer', new_offer_path(listing.id), class: "btn btn-primary" %>
-          <% end %>
+        <% if listing.user != current_user %><!-- only display make new offer for other users -->
+          <%= link_to 'Make Offer', new_offer_path(listing.id), class: "btn btn-primary" %>
+        <% end %>
         </td>
       </tr>
       <tr>

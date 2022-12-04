@@ -26,8 +26,7 @@ class ListingsController < ApplicationController
       @listing= @game.listings.build(params.require(:listing).permit(:condition, :description))
       @listing.user=current_user
       @listing.status="active"
-      if @listing.save!
-
+        if @listing.save!
           flash[:success] = "Listing saved successfully"
           redirect_to game_url(@game)
       else
