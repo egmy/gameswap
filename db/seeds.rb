@@ -350,7 +350,7 @@
         tag: rpg
     )
     Game.create!(
-        title: 'Farming Simulator 22.png',
+        title: 'Farming Simulator 22',
         description: "Take on the role of a modern farmer and creatively build your farm in three diverse American and European environments. Farming Simulator 22 offers a huge variety of farming operations focusing on agriculture, animal husbandry and forestry - now with the exciting addition of seasonal cycles!",
         image: 'Farming Simulator 22.png',
         tag: sim
