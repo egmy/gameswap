@@ -30,7 +30,6 @@
     shooter   = Tag.create!(name: 'Shooter')
     sim       = Tag.create!(name: 'Simulation')
     sports    = Tag.create!(name: 'Sports')
-    strategy  = Tag.create!(name: 'Strategy')
 
 # GAMES
 
@@ -212,6 +211,174 @@
         tag: sports
     )
 
+    starWars = Game.create!(
+        title: 'Star Wars Jedi: Fallen Order',
+        description: 'A New Jedi Story Begins - As a former Padawan on the run from the Empire, you must complete your training before Imperial Inquisitors discover your plan to revive the Jedi Order. Aided by a former Jedi Knight, a cantankerous pilot, and a fearless droid, you must escape the evil machinations of the Empire in a story-driven adventure. Explore and overcome a wide range of challenges focused on combat, exploration, and puzzle-solving.',
+        image: 'Star Wars Jedi Fallen Order.png',
+        tag: action
+    )
+
+    farCry6 = Game.create!(
+        title: 'Far Cry 6',
+        description: "Become A Guerrilla - Play Dani Rojas as male or female and experience a compelling storyline that takes you from being a reluctant citizen to a leader fighting against Antón's regime. Jump into the action and chaos of guerrilla combat and gather soldiers and resources to help you in the fight.",
+        image: 'Far Cry 6.png',
+        tag: action
+    )
+
+    farCry6 = Game.create!(
+        title: 'Cyberpunk 2077',
+        description: "Play as a Mercenary Outlaw - Become a cyberpunk, an urban mercenary equipped with cybernetic enhancements and build your legend on the streets of Night City. ",
+        image: 'Cyberpunk 2077.png',
+        tag: action
+    )
+ 
+    minecraft = Game.create!(
+        title: 'Minecraft Dungeons',
+        description: "Minecraft Dungeons: Fight your way through an all-new action-adventure game, inspired by classic dungeon crawlersand set in the Minecraft universe!",
+        image: 'Minecraft Dungeons.png',
+        tag: adventure
+    )    
+
+    theWalkingDead = Game.create!(
+        title: 'The Walking Dead',
+        description: "Emotional, Gut-Wrenching Story - See Clementine's journey through to the end. As she builds a new life, you will have to grapple with new types of choices and live with the consequences as AJ looks on, learning from your every move.",
+        image: 'The Walking Dead.png',
+        tag: adventure
+    )    
+
+    Game.create!(
+        title: 'Assassins Creed Valhalla',
+        description: "In Assassin's Creed Valhalla you can become a legendary Viking Warrior. Raid your enemies, grow your settlement, and build your political power in the quest to earn a place among the gods in Valhalla. The advanced RPG mechanics allow you to shape your character and the world around you. Ensure that every choice you make is well thought out. From political alliances to gear progression, you create your own story and path to glory.",
+        image: 'Assassins Creed Valhalla.png',
+        tag: adventure
+    )
+
+    Game.create!(
+        title: 'Life is Strange: True Colors',
+        description: "In Life is Strange: True Colors on Xbox One, Alex Chen is on a quest to solve the mystery surrounding her brother’s death. Using her psychic power of empathy she discovers shocking secrets in the small mining town, Haven Springs. Embrace her supernatural ability to uncover the truth and reveal the mysteries buried by the town. Embark on a journey that will change fate and lives.",
+        image: 'Life is Strange True Colors.png',
+        tag: adventure
+    )
+    Game.create!(
+        title: 'ARK Survival Evolved',
+        description: "From primordial island jungles to the futuristic gardens of an interstellar starship, every sprawling environment is here for you to conquer! Discover the hundreds of unique species roaming these lands, from the prehistoric to the fantastical, and learn how to befriend these creatures, or to defeat them. Complete your collection of notes and dossiers left by past explorers to learn the surprising history of the ARKs. Test your tribe and your beasts in battle with every boss challenge from the franchise!",
+        image: 'ARK Survival Evolved.png',
+        tag: adventure
+    )
+    Game.create!(
+        title: "TMNT Shredder's Revenge",
+        description: "With Bebop and Rocksteady assaulting Channel 6 and stealing super gnarly devices to support Krang and Shredder’s latest twisted plan, Teenage Mutant Ninja Turtles: Shredder’s Revenge sees the Turtles battling across a righteous range of timeless TMNT locations. From Manhattan and Coney Island, to city rooftops and dank sewers, help the fearsome foursome trounce Foot Soldiers, Triceraton Warriors, and Rock Troops all the way to Dimension X!",
+        image: "TMNT Shredder's Revenge.png",
+        tag: fighting
+    )
+    Game.create!(
+        title: 'Cobra Kai 2 Dojos Rising',
+        description: "Eagle Fang, Cobra Kia, Miyagi-do – Which is your dojo? That choice begins your journey, but then it’s up to you to recruit the most powerful team as you master your fighting style and battle to solidify your dojo’s LEGACY as the All Valley Karate Grand Champion!",
+        image: 'Cobra Kai 2 Dojos Rising.png',
+        tag: fighting
+    )
+    Game.create!(
+        title: 'Capcom Fighting Collection',
+        description: "Fighting fans can celebrate 35 years of Capcom fighting games with Capcom Fighting Collection on Xbox One, an anthology of 10 classic titles – including the full Darkstalkers series together for the first time ever outside of Japan. Each of the 10 titles in the collection has been revitalized with online multiplayer, enhanced features, and quality of life updates.",
+        image: 'Capcom Fighting Collection.png',
+        tag: fighting
+    )
+    Game.create!(
+        title: 'Lego Brawls',
+        description: "It's a LEGO battle of the ages! LEGO Brawls is a light-hearted, casual-competitive video game the whole family can enjoy on Xbox One. LEGO Brawls is the first team fighting action game set in the LEGO universe. Build your own minifigure hero and brawl to the top in this multiplayer, brick-bashing platformer inspired by iconic LEGO sets! Battle solo or with family and friends! Collect minifigures and power-ups, combine them to create your ultimate brawler, and climb to the top of the global leaderboard",
+        image: 'Lego Brawls.png',
+        tag: fighting
+    )
+    Game.create!(
+        title: 'Overcooked',
+        description: "Overcooked is a chaotic couch co-op cooking game for one to four players. Working as a team, you and your fellow chefs must prepare, cook and serve up a variety of tasty orders before the baying customers storm out in a huff. Sharpen your knives and dust off your chef’s whites, there isn’t mushroom for error and the steaks are high in these crazy kitchens!",
+        image: 'Overcooked.png',
+        tag: indie
+    )
+    Game.create!(
+        title: 'Worms Rumble',
+        description: "Use a variety of fan-favorite weapons like the Bazooka, Shotgun and Sheep Launcher plus all-new additions to the armory to bring the pain to your invertebrate opponents as you climb the ranks. Customize your worm, take part in challenges and seasonal events and experiment with new ways to play in The Lab. This is Worms, reinvented.",
+        image: 'Worms Rumble.png',
+        tag: indie
+    )
+    Game.create!(
+        title: 'Fobia St. Dinfna Hotel',
+        description: "Treze Trilhas is home to the St. Dinfina Hotel, a decadent site that is the subject of numerous rumors including mysterious disappearances and paranormal activity. Hoping to break the story, amateur journalist Roberto Leite Lopes travels to Santa Catarina following a tip from his friend Stephanie. His investigative skills will be needed not only to uncover the truth but to survive when reality is turned upside down with his discovery of a camera that reveals different timelines, a fanatical cult, human experiments, and apparitions roaming the halls.",
+        image: 'Fobia St Dinfna Hotel.png',
+        tag: indie
+    )
+    Game.create!(
+        title: 'The Crew 2',
+        description: "In The Crew® 2, take on the American motorsports scene as you explore and dominate the land, air, and sea of the United States in one of the most exhilarating open worlds ever created. With a wide variety of exotic cars, bikes, boats, and planes to choose from, experience the unbridled thrill and adrenaline-pumping excitement of competing across the entire US as you test your skills in a wide range of driving disciplines. Record every heart-pounding, white-knuckle, asphalt-melting moment and share them with your friends and rivals with the simple push of a button. Fame is yours to take!",
+        image: 'The Crew 2.png',
+        tag: racing
+    )
+    Game.create!(
+        title: 'NASCAR 21 Ignition',
+        description: "Either dive straight into the action with Race Now, playing as your favorite official driver from the NASCAR Cup Series, or take on the immersive and engaging career mode as you build your reputation in the sport and battle your way toward the championship.",
+        image: 'NASCAR 21 Ignition.png',
+        tag: racing
+    )
+    Game.create!(
+        title: 'The Elder Scrolls V: Skyrim',
+        description: "Winner of more than 200 Game of the Year Awards, Skyrim Special Edition brings the epic fantasy to life in stunning detail. The Special Edition includes the critically acclaimed game and add-ons with all-new features like remastered art and effects, volumetric god rays, dynamic depth of field, screen-space reflections, and more. Skyrim Special Edition also brings the power of PC mods to consoles. New quests, environments, characters, dialogue, armor, weapons and more – with Mods, the possibilities of what you can experience are nearly endless.",
+        image: 'The Elder Scrolls V Skyrim',
+        tag: rpg
+    )
+    Game.create!(
+        title: 'The Witcher III: Wild Hunt',
+        description: "Become a professional monster slayer and embark on an adventure in The Witcher III: Wild Hunt Complete Edition. Experience a dark fantasy, open world RPG that focuses on a character-driven story, various decisions, and tactical combat. The third installment of the saga improves every aspect of the series, with a smoother combat system, new Witcher senses, monster hunting, improved alchemy, magic signs, crafting systems, and many more.",
+        image: 'The Witcher III Wild Hunt.png',
+        tag: rpg
+    )
+    Game.create!(
+        title: 'Dragon Ball Z Kakarot',
+        description: "Relive the story of Goku and other Z Fighters in DRAGON BALL Z: KAKAROT! Beyond the epic battles, experience life in the DRAGON BALL Z world as you fight, fish, eat, and train with Goku, Gohan, Vegeta and others. Explore the new areas and adventures as you advance through the story and form powerful bonds with other heroes from the DRAGON BALL Z universe.",
+        image: 'Dragon Ball Z Kakarot.png',
+        tag: rpg
+    )
+    Game.create!(
+        title: 'Mass Effect',
+        description: "One person is all that stands between humanity and the greatest threat it’s ever faced. Relive the legend of Commander Shepard in the highly acclaimed Mass Effect trilogy with the Mass Effect Legendary Edition on Xbox One. Includes single-player base content and over 40 DLC from Mass Effect, Mass Effect 2, and Mass Effect 3 games, including promo weapons, armors, and packs – remastered and optimized for 4K Ultra HD.",
+        image: 'Mass Effect.png',
+        tag: rpg
+    )
+    Game.create!(
+        title: 'Fallout 4',
+        description: "Bethesda Game Studios, the award-winning creators of Fallout 3 and The Elder Scrolls V: Skyrim, welcome you to the world of Fallout 4 – their most ambitious game ever, and the next generation of open-world gaming.",
+        image: 'Fallout 4.png',
+        tag: rpg
+    )
+    Game.create!(
+        title: 'Farming Simulator 22.png',
+        description: "Take on the role of a modern farmer and creatively build your farm in three diverse American and European environments. Farming Simulator 22 offers a huge variety of farming operations focusing on agriculture, animal husbandry and forestry - now with the exciting addition of seasonal cycles!",
+        image: 'Farming Simulator 22.png',
+        tag: sim
+    )
+    Game.create!(
+        title: 'The Sims 4',
+        description: "Unleash your imagination and create a unique world of Sims that’s an expression of you! Explore and customize every detail from Sims to homes, and much more. Choose how Sims look, act, and dress, then decide how they’ll live out each day. Design and build incredible homes for every family, then decorate with your favorite furnishings and décor.Tell your stories your way while developing relationships, pursuing careers and life aspirations, and immersing yourself in this extraordinary game, where the possibilities are endless. Play with life!",
+        image: 'The Sims 4.png',
+        tag: sim
+    )
+    Game.create!(
+        title: 'Zoo Tycoon',
+        description: "Let your imagination run wild with Zoo Tycoon on Xbox One! Choose from over 100 visually stunning animals and the largest, most detailed selection of environments ever, then build, manage and maintain your dream zoo alone or with up to four players on Xbox LIVE. For added fun, upload your creation to the cloud and work together with other Tycoons to care for and share your animals. With intuitive, easy-to-use controls and Kinect-enabled features that allow your animals to recognize your voice and react to your movements, this zoo simulation will charm animal lovers of all ages.",
+        image: 'Zoo Tycoon.png',
+        tag: sim
+    )
+    Game.create!(
+        title: 'Pro Fishing Simulator',
+        description: "THE NEXT BEST THING TO REAL FISHING!Pro Fishing Simulator is an authentic sport fishing simulation for both beginner and avid anglers. Set out for the most beautiful fishing holes in the world and hook the best catches using real-world equipment from licensed brands. Perfect your technique to become one of the top fishing pros in the world!",
+        image: 'Pro Fishing Simulator.png',
+        tag: sim
+    )
+    Game.create!(
+        title: 'Cities Skylines',
+        description: "Cities: Skylines - Xbox One Edition puts you in charge of a growing city – from the ground-breaking of its first streets to the ever-changing needs of thousands of citizens. Design, build, and manage the city of your dreams, from public services to civic policies, and challenge yourself to grow from a simple town to a bustling metropolitan hub.",
+        image: 'Cities Skylines.png',
+        tag: sim
+    )
 
 # Listings
 
