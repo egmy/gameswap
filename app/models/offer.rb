@@ -3,7 +3,6 @@
 # Table name: offers
 #
 #  id          :bigint           not null, primary key
-#  accepted    :boolean
 #  condition   :string
 #  description :string
 #  status      :string
