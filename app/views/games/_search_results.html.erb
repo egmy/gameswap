@@ -1,5 +1,5 @@
 <div class="list-group">
-  <% @games.each do |g| %>
+  <% @games.take(5).each do |g| %>
     <div class="row">
       <div class="col md-100">
         <button type="button" class="list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#g<%= g.id.to_s %>" aria-expanded="false" aria-controls="g<%= g.id.to_s %>">
