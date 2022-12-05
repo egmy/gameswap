@@ -36,10 +36,13 @@
                     <div class="col-5">
                         <!-- Offer -->
                         <% if params[:game_id] %>
+                            <% offer_game_title = Game.find(params[:game_id]).title %>
                             <%= image_tag "covers/" + Game.find(params[:game_id]).image, class: 'card-img-top', size: '525x640' %>  <%# placeholder for dynamic image %>
                         <% else %>
                             <%= image_tag "covers/NO_COVER.png", class: 'bg-img', size: '525x640' %>  
                         <% end %>
+
+                        <%= hidden_field_tag :title, offer_game_title %>
                         
                         <%# pass listing_id to games_index so it can redierct back to this page (using the correct listing_id that the offer is being made for) %>
                         <%= link_to "Choose Game", games_index_path(:listing_id => params[:listing_id]), class: 'btn btn-primary rounded-pill mt-2' %> 
