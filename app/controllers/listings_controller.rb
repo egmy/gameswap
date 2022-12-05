@@ -19,25 +19,27 @@ class ListingsController < ApplicationController
       @listing = Listing.new
       render :new
     end
-    # test
-    def alt_new
-      @listing = Listing.new
-      render :alt_new
-    end
-    # test
-    def create_listing
-      @game = Game.find(params[:game_id])
-      @listing= @game.listings.build(params.require(:listing).permit(:condition, :description))
-      @listing.user=current_user
-      @listing.status="active"
-        if @listing.save!
-          flash[:success] = "Listing saved successfully"
-          redirect_to game_url(@game)
-      else
-          flash.now[:error] = "Listing could not be saved"
-          render :new, status: :unprocessable_entity
-        end
-    end
+
+    # enable to integrate game searching into new listings, route currently disabled
+    # def alt_new
+    #   @listing = Listing.new
+    #   render :alt_new
+    # end
+
+    # disabled -- obsolete, created when testing new listings + game searching
+    # def create_listing
+    #   @game = Game.find(params[:game_id])
+    #   @listing= @game.listings.build(params.require(:listing).permit(:condition, :description))
+    #   @listing.user=current_user
+    #   @listing.status="active"
+    #     if @listing.save!
+    #       flash[:success] = "Listing saved successfully"
+    #       redirect_to game_url(@game)
+    #   else
+    #       flash.now[:error] = "Listing could not be saved"
+    #       render :new, status: :unprocessable_entity
+    #     end
+    # end
 
     def create
       @game = Game.find(params[:game_id])

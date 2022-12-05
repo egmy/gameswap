@@ -15,15 +15,7 @@ class GamesController < ApplicationController
          format.turbo_stream do
             render turbo_stream: turbo_stream.update("search_results",
                partial: "games/search_results", locals: {games: @games, listing: @listing}) # partial view "_search_results.html.erb"
-            # if @games.count == 1
-            #    render turbo_stream: turbo_stream.update("new_offer_form", Game.where(title: @games[0]))
-            # end
          end
-
       end
-   end
-
-   def game_is
-
    end
 end
