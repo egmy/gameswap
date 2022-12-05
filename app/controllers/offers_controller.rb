@@ -18,8 +18,10 @@ class OffersController < ApplicationController
 
   # disallow rendering this page if it listing_id doesn't exist/wasn't accessed via link on offers/new.html.erb
   def games_index # used for WF06, 'Choose from a list' possibly move route, action to another controller
-      @games = Game.order(:title)
-      render :games_index
+    @q = Game.ransack(params[:q])
+    @games = @q.result.includes(:tag).order(:title)
+    @tags = Tag.all.order(:name)
+    render :games_index
   end
 
   def new
