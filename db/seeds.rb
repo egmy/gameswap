@@ -18,6 +18,24 @@
         description: "This is Bob's description."
     )
 
+    eric=User.create!(
+        username: 'eric',
+        email: 'eric@email.com',
+        password: 'password234',
+        image: 'user_icon.png',
+        description: "This is Eric's description."
+    )
+
+    joe=User.create!(
+        username: 'joe',
+        email: 'joe@email.com',
+        password: 'password234',
+        image: 'user_icon.png',
+        description: "This is Joe's description."
+    )
+
+
+
 
 # TAGS
 
@@ -215,7 +233,7 @@
 
 # Listings
 
-    cod_bob=cod_alice = Listing.create!(
+    cod_bob= Listing.create!(
         description: 'I would like an indie game in exchange for this COD. Condition is new, never opened.',
         condition: 'New',
         status: 'active',
@@ -235,13 +253,13 @@
 
     nba2k_alice_listing = Listing.create!(
         description: 'I would like a sports game in exchange for this NBA2K. Condition is good, there are minor scratches',
-        condition: 'Used-Good',
+        condition: 'Used-Acceptable',
         status: 'active',
         user: alice,
         game: nba2k23
 
     )
-
+    
     rocket_league_alice=Listing.create!(
         description: 'I would like a sports game in exchange for this Rocket League. Condition is good, there are minor scratches',
         condition: 'Used-Good',
@@ -257,6 +275,44 @@
         game: rocketLeague
     )
 
+    bo3_bob=Listing.create!(
+        description: 'I would like an indie game in exchange for Black Ops 3. Great condition.',
+        condition: 'Used-Good',
+        status: 'active',
+        user: bob,
+        game: blackOps3
+    )
+    bo3_joe=Listing.create!(
+        description: 'I would like a sports game in exchange for Black Ops 3. Great condition.',
+        condition: 'Used-Like New',
+        status: 'active',
+        user: bob,
+        game: blackOps3
+    )
+
+    aW_eric=Listing.create!(
+        description: 'I would like an indie game in exchange for COD. Great condition.',
+        condition: 'Used-Very Good',
+        status: 'active',
+        user: eric,
+        game: advancedWarfare
+    )
+    rocket_league__eric=Listing.create!(
+        description: 'I would like a sports game. Good condition, works well.',
+        condition: 'Used-Good',
+        status: 'active',
+        user: eric,
+        game: rocketLeague
+
+    )
+    aw_joe=Listing.create(
+        description: 'I would like a sports game in exchange for COD. Okay condition, minor scratches.',
+        condition: 'Used-Acceptable',
+        status: 'active',
+        user: joe,
+        game: advancedWarfare
+
+    )
 
 
 
@@ -287,7 +343,7 @@
         status: "active",
         listing: cod_alice,
         game: halo5,
-        owner: alice
+        owner: bob
     )
 
     offer_4 = Offer.create!(
@@ -297,7 +353,7 @@
         status: "active",
         listing: cod_alice,
         game: nba2k21,
-        owner: alice
+        owner: joe
     )
     offer_5 = Offer.create!(
         accepted: true,
@@ -306,7 +362,7 @@
         status: "active",
         listing: nba2k_alice_listing,
         game: halo5,
-        owner: alice
+        owner: joe
     )
     offer_6 = Offer.create!(
         accepted: true,
@@ -315,7 +371,7 @@
         status: "active",
         listing: cod_alice,
         game: halo5,
-        owner: alice
+        owner: eric
     )
 
 
