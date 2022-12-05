@@ -1,26 +1,26 @@
 
-     <h3> <%= @listing.game.title %> </h3>
-        <div class="row", style="background-color:black; color:white">
-            <div class="col-md-1">Username</div>
-            <div class="col-md-2">Game Name</div>
-            <div class="col-md-2">Condition</div>
-            <div class="col-5">Description</div>
-            <div class="col-md-1"><!-- Accept --></div>
-            <div class="col-md-1"><!-- Decline --></div>
+<h3> <%= @listing.game.title %> </h3>
+<div class="row", style="background-color:black; color:white">
+    <div class="col-md-1">Username</div>
+    <div class="col-md-2">Game Name</div>
+    <div class="col-md-2">Condition</div>
+    <div class="col-5">Description</div>
+    <div class="col-md-1"><!-- Accept --></div>
+    <div class="col-md-1"><!-- Decline --></div>
+</div>
+<% @offers.each do |offer| %>
+    <%= form_with model: offer, method: :patch, url: listing_offer_path(current_user.id, @listing, offer), data: { turbo: false } do |f| %>
+        <div class="row">
+        <% if offer.status=="active" %>
+            <div class="col-md-1"><%=link_to offer.owner.username, my_listings_path(offer.owner)%></div>
+            <div class="col-md-2"><%=offer.game.title %></div>
+            <div class="col-md-2"><%=offer.condition %></div>
+            <div class="col-5"><%=offer.description %></div>
+            <div class="col-sm-1"><%=f.submit "Accept",  name: "status", class: 'btn btn-success'%></div>
+            <div class="col-sm-1"><%=f.submit "Decline", name: "status",  class: 'btn btn-danger'%></div>
+            <hr size="3" width="100%" color="black"> 
+            <% end %>
         </div>
-        <% @offers.each do |offer| %>
-        <%= form_with model: offer, method: :patch, url: listing_offer_path(current_user.id, @listing, offer), data: { turbo: false } do |f| %>
-            <div class="row">
-            <% if offer.status=="active" %>
-                <div class="col-md-1"><%=link_to offer.owner.username, my_listings_path(offer.owner)%></div>
-                <div class="col-md-2"><%=offer.game.title %></div>
-                <div class="col-md-2"><%=offer.condition %></div>
-                <div class="col-5"><%=offer.description %></div>
-                <div class="col-sm-1"><%=f.submit "Accept",  name: "status", class: 'btn btn-success'%></div>
-                <div class="col-sm-1"><%=f.submit "Decline", name: "status",  class: 'btn btn-danger'%></div>
-                <hr size="3" width="100%" color="black"> 
-                <% end %>
-                <% end %>
-            </div>
-        <% end %>
+    <% end %>
+<% end %>
    
