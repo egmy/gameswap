@@ -7,12 +7,12 @@ Rails.application.routes.draw do
   post 'index/:game_id', to: 'listings#create'
   get 'index/:game_id/new', to: 'listings#new', as: 'new_game_listing'
 
-  get 'games_index', to: 'offers#games_index', as: 'games_index' # used for WF06 'Choose from a list'
   # get 'listings/new', to: 'listings#alt_new', as: 'new_listing' # enable for new listing + search game
   # post 'listings', to: 'listings#create_listing', as: 'listings' # enable for new listnig + search game
 
   get 'listing/:listing_id/offers', to: 'offers#index', as: 'offers'
   get 'listing/:listing_id/offers/new', to: 'offers#new', as: 'new_offer'
+  get 'listing/:listing_id/offers/new/games_index', to: 'offers#games_index', as: 'games_index' # used for WF06 'Choose from a list'
   post 'listing/:listing_id/offers', to: 'offers#create'
   delete 'listing/:listing_id/offers/:id', to: 'offers#destroy', as: 'cancel_offer'
 

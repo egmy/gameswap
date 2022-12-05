@@ -7,9 +7,9 @@
   <%= image_tag "covers/" + @game.image, size: '400x520' %>
 
   <%= bootstrap_form_with model: @listing, method: :post, url: game_path(@game), data: { turbo: false } do |f| %>
-      <%= f.select :condition, ["New", "Used-Like New", "Used-Very Good", "Used-Good", "Used-Acceptable"]%>
-      <%= f.text_field :description, placeholder: "Describe the condition and what you would like to trade for"%>
-      <%= f.submit %>
+    <%= f.select :condition, ["New", "Used-Like New", "Used-Very Good", "Used-Good", "Used-Acceptable"]%>
+    <%= f.text_field :description, placeholder: "Describe the condition and what you would like to trade for"%>
+    <%= f.submit %>
   <% end %>
 
   <p class="mt-3">

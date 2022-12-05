@@ -7,7 +7,8 @@
         </button>
       </div>
       <div class="col-1"> <%# to-do set this column to fixed size%>
-        <% if params[:listing_id] != "" and params[:searching_from_url] == new_offer_url(params[:listing_id]) %> <%# short circuit if listing_id is empty %>
+        <%# if params[:listing_id] != "" and params[:searching_from_url] == new_offer_url(params[:listing_id]) %> <%# short circuit if listing_id is empty %>
+        <% if params[:listing_id] != "" and params[:searching_from_url].match(new_offer_url(params[:listing_id])) %> <%# short circuit if listing_id is empty, if searching_from_url (<url>?game=game_id) contains a portion of new_offer_url (<url>) %>
           <%# new offer %>
           <%= link_to "Offer", new_offer_path(params[:listing_id], :game_id => g.id), class: 'btn btn-sm btn-primary mt-1' %>
         <% else %>
