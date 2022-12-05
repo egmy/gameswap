@@ -408,7 +408,6 @@
         game: blackOps4
 
     )
-
     cod_alice = Listing.create!(
         description: 'I would like an indie game in exchange for this COD. I enjoyed it.  Condition is fine. Packaging is damaged',
         condition: 'Used-Acceptable',
@@ -441,6 +440,14 @@
         user: bob,
         game: rocketLeague
     )
+    rocket_league__eric=Listing.create!(
+        description: 'I would like a sports game. Good condition, works well.',
+        condition: 'Used-Good',
+        status: 'active',
+        user: eric,
+        game: rocketLeague
+
+    )
 
     bo3_bob=Listing.create!(
         description: 'I would like an indie game in exchange for Black Ops 3. Great condition.',
@@ -457,20 +464,12 @@
         game: blackOps3
     )
 
-    aW_eric=Listing.create!(
+    aw_eric=Listing.create!(
         description: 'I would like an indie game in exchange for COD. Great condition.',
         condition: 'Used-Very Good',
         status: 'active',
         user: eric,
         game: advancedWarfare
-    )
-    rocket_league__eric=Listing.create!(
-        description: 'I would like a sports game. Good condition, works well.',
-        condition: 'Used-Good',
-        status: 'active',
-        user: eric,
-        game: rocketLeague
-
     )
     aw_joe=Listing.create(
         description: 'I would like a sports game in exchange for COD. Okay condition, minor scratches.',
@@ -481,21 +480,69 @@
 
     )
 
+    destiny_joe=Listing.create!(
+        description: 'I would like am rpg for this. Hardly used.',
+        condition: 'Used-Like New',
+        status: 'active',
+        user: joe,
+        game: destiny
+    )
+    destiny_alice=Listing.create!(
+        description: 'I would like COD for this. Lightly used.',
+        condition: 'Used-Very Good',
+        status: 'active',
+        user: alice,
+        game: destiny
+    )
+    destiny_bob=Listing.create!(
+        description: 'I would like GTA. Never opened.',
+        condition: 'Used-New',
+        status: 'active',
+        user: bob,
+        game: destiny
+    )
 
+    gta_eric=Listing.create!(
+        description: 'Great Game. Heavily used.',
+        condition: 'Used-Acceptable',
+        status: 'active',
+        user: eric,
+        game: gta5
+    )
+    gta_joe=Listing.create!(
+        description: 'I want COD for this. I have only played it once.',
+        condition: 'Used-Like New',
+        status: 'active',
+        user: joe,
+        game: gta5
+    )
+
+    mt_alice=Listing.create!(
+        description: 'I want COD for this. I have only played it once.',
+        condition: 'Used-Like New',
+        status: 'active',
+        user: alice,
+        game: mortalKombat10
+    )
+    mt_bob=Listing.create!(
+        description: 'Good condition, used it a couple of times.',
+        condition: 'Used-Good',
+        status: 'active',
+        user: bob,
+        game: mortalKombat10
+    )
 
 # OFFERS
 
     offer_1 = Offer.create!(
-        accepted: false,
         condition: "New",
         description: "This game is in mint condition...",
         status: "active",
         listing: nba2k_alice_listing,
         game: coldWar,
-        owner: alice
+        owner: bob
     )
     offer_2 = Offer.create!(
-        accepted: false,
         condition: "Used-Acceptable",
         description: "My dog ate it, but threw it back up. It still works.",
         status: "declined",
@@ -504,7 +551,6 @@
         owner: alice
     )
     offer_3 = Offer.create!(
-        accepted: true,
         condition: "Used-Like New",
         description: "This is the collector's edition of Barbie and Her Sisters: Puppy Rescue. The case is scuffed, but the game is in mint condition.",
         status: "active",
@@ -514,7 +560,6 @@
     )
 
     offer_4 = Offer.create!(
-        accepted: true,
         condition: "Used-Like New",
         description: "The case is scuffed, but the game is in mint condition.",
         status: "active",
@@ -523,7 +568,6 @@
         owner: joe
     )
     offer_5 = Offer.create!(
-        accepted: true,
         condition: "Used-Like New",
         description: "In okay condition, do not care what game",
         status: "active",
@@ -532,12 +576,43 @@
         owner: joe
     )
     offer_6 = Offer.create!(
-        accepted: true,
         condition: "Used-Like New",
-        description: "In great condition, would like a sports game",
+        description: "In great condition",
         status: "active",
         listing: cod_alice,
-        game: halo5,
+        game: madden23,
+        owner: eric
+    )
+    offer_7 = Offer.create!(
+        condition: "Used-Like New",
+        description: "In great condition",
+        status: "active",
+        listing: aw_eric,
+        game: gta5,
+        owner: joe
+    )
+    offer_8 = Offer.create!(
+        condition: "Used-Acceptable",
+        description: "In okay condition",
+        status: "active",
+        listing: aw_eric,
+        game: rocketLeague,
+        owner: alice
+    )
+    offer_9 = Offer.create!(
+        condition: "Used-Acceptable",
+        description: "In okay condition",
+        status: "active",
+        listing: bo3_bob,
+        game: madden21,
+        owner: alice
+    )
+    offer_10 = Offer.create!(
+        condition: "Used-Acceptable",
+        description: "In good condition, no scratches",
+        status: "active",
+        listing: bo3_bob,
+        game: destiny2,
         owner: eric
     )
 
