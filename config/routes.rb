@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, path_names: { edit: 'profile/edit' }#, controllers: {registrations: 'users/registrations' }
+  devise_for :users, path_names: { edit: 'profile/edit' }, controllers: {registrations: 'users/registrations' }
   root to: redirect('index')
 
   get 'index', to: 'games#index', as: 'games'
