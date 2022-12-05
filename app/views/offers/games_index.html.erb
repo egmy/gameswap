@@ -1,11 +1,53 @@
-<html>
-    <head>
-        <title>Games</title>
-    </head>
-    <body>
-        <% @games.each do |g| %>
-            <%= link_to g.title, new_offer_path(:listing_id => params[:listing_id], :game_id => g) %>
-            <br>
+
+<div class="container-fluid row mt-5">
+
+    <h1 class='text-center'>Choose a game for your offer</h1>
+
+    <div class="col col-2">
+        <h2 class='text-center'>Genre</h2>
+        <%= search_form_for @q, url: games_index_path do |f| %>
+
+            <div class="form-check">
+                <%= f.radio_button :tag_name_cont, '', {class: 'form-check-input fs-5'} %>
+                <%= f.label 'All', class: 'form-check-label fs-5' %>
+            </div>
+
+            <% @tags.each do |tag| %>
+                <div class="form-check">
+                    <%= f.radio_button :tag_name_cont, tag.name, {class: 'form-check-input fs-5'} %>
+                    <%= f.label tag.name, class: 'form-check-label fs-5' %>
+                </div>
+            <% end %>
+
+            <%= f.submit name='Apply Filter', name: '', class: 'btn btn-outline-dark' %>
         <% end %>
-    </body>
-</html>
+    </div>
+
+    <div class="container col-8">
+        <%= search_form_for @q, url: games_index_path do |f| %>
+            <div class="input-group mb-3"> 
+                <%= f.search_field :title_cont, class: 'form-control form-control-md', placeholder: 'Search Games' %>
+                <%= f.submit class:'btn btn-outline-secondary'%>
+            </div>
+        <% end %>
+
+        <table class="table table-hover border border-dark table fs-6">
+            <thead class="table-secondary"> 
+                <tr>
+                    <th><%= sort_link(@q, :title, 'Game Name') %></th>
+                    <th><%= sort_link(@q, :tag_name, 'Genre') %></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% @games.each do |g| %>
+                    <tr>
+                        <td> <%= link_to g.title, new_offer_path(:listing_id => params[:listing_id], :game_id => g) %></td>
+                        <td><%= g.tag.name %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>    
+    </div>  
+
+</div>
