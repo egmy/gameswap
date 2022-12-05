@@ -1,0 +1,178 @@
+
+
+<p>Viewing <%= @games.count %> results</p>
+<div class="tab-content">
+    <div class="tab-pane active" id="placeholder" role="tabpanel">HASGIOAHSOGIASHGOIH</div>
+<% @games.each do |g| %>
+
+    <div class="tab-pane" id="game_<%= g.id.to_s %>" role="tabpanel"><%= image_tag "covers/" + g.image %></div>
+</div>
+<% end %>
+<ul>
+    <% @games.each do |g| %>
+        <li>
+            <%#= image_tag "covers/" + g.image, class: 'img-thumbnail' %>
+                <%= link_to highlight(g.title, params[:title_search]), game_path(g) %>
+                <%= params %><!-- debug only -->
+                <%= link_to "TRY THIS", new_offer_path(params[:listing_id], :game_id => g.id) %> <!-- listing_id specifically for offers -->
+                <%= link_to "OR THIS IF LISTING", new_game_listing_path(:game_id => g.id) %>
+
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#c<%= g.id.to_s %>" aria-expanded="false" aria-controls="c<%= g.id.to_s %>">
+                    Button with data-bs-target
+                </button>
+
+                <div class="collapse" id="c<%= g.id.to_s %>">
+                <div class="card card-body">
+                    <%= image_tag "covers/" + g.image, class: "img img-top" %>
+                    <%= g.description %>
+
+                </div>
+                </div>
+                <!-- passing game_id into current page -->
+                <div role="tabpanel">
+                <!-- List group -->
+                    <div class="list-group" id="myList" role="tablist">
+                        <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#game_<%= g.id.to_s %>" role="tab"><%= g.title %></a>
+                    </div>
+
+
+
+
+        </li>
+    <% end %>
+</ul>
+
+<div class="list-group" id="myList" role="tablist">
+  <a class="list-group-item list-group-item-action active" data-bs-toggle="list" href="#home" role="tab">Home</a>
+  <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#profile" role="tab">Profile</a>
+  <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#messages" role="tab">Messages</a>
+  <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#settings" role="tab">Settings</a>
+</div>
+
+<div class="tab-content">
+  <div class="tab-pane" id="home" role="tabpanel">a</div>
+  <div class="tab-pane" id="profile" role="tabpanel">b</div>
+  <div class="tab-pane" id="messages" role="tabpanel">c</div>
+  <div class="tab-pane" id="settings" role="tabpanel">d</div>
+</div>
+
+<script>
+  var firstTabEl = document.querySelector('#myTab a:last-child')
+  var firstTab = new bootstrap.Tab(firstTabEl)
+
+  firstTab.show()
+</script>
+
+
+
+<script>
+    var triggerTabList = [].slice.call(document.querySelectorAll('#myTab a'))
+triggerTabList.forEach(function (triggerEl) {
+  var tabTrigger = new bootstrap.Tab(triggerEl)
+
+  triggerEl.addEventListener('click', function (event) {
+    event.preventDefault()
+    tabTrigger.show()
+  })
+})
+
+var triggerEl = document.querySelector('#myTab a[href="#profile"]')
+bootstrap.Tab.getInstance(triggerEl).show() // Select tab by name
+
+var triggerFirstTabEl = document.querySelector('#myTab li:first-child a')
+bootstrap.Tab.getInstance(triggerFirstTabEl).show() // Select first tab
+
+    </script>
+
+
+if page == new_listing
+    link_to new_listing_with_game_id
+elif page == new offer
+    link_to new_offer_with_game_id
+end
+
+expandable description + cover
+
+
+
+
+<p>
+  <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Toggle first element</a>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Toggle second element</button>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Toggle both elements</button>
+</p>
+<div class="row">
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample1">
+      <div class="card card-body">
+        Some placeholder content for the first collapse component of this multi-collapse example. This panel is hidden by default but revealed when the user activates the relevant trigger.
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample2">
+      <div class="card card-body">
+        Some placeholder content for the second collapse component of this multi-collapse example. This panel is hidden by default but revealed when the user activates the relevant trigger.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- HTML to write -->
+<a href="#" data-bs-toggle="tooltip" title="Some tooltip text!">Hover over me</a>
+
+<!-- Generated markup by the plugin -->
+<div class="tooltip bs-tooltip-top" role="tooltip">
+  <div class="tooltip-arrow"></div>
+  <div class="tooltip-inner">
+    Some tooltip text!!!!!!!!!!!!!
+  </div>
+</div>
+
+
+<!-- initialize bootstrap tooltips -->
+<script>
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+
+    var myModal = document.getElementById('myModal')
+    var myInput = document.getElementById('myInput')
+
+    myModal.addEventListener('shown.bs.modal', function () {
+        myInput.focus()
+    })
+
+</script>

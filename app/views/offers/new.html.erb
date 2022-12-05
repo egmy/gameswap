@@ -37,7 +37,13 @@
                         <% if params[:game_id] %>
                             <%= image_tag "covers/" + Game.find(params[:game_id]).image, class: 'card-img-top' %>  <%# placeholder for dynamic image %>
                         <% else %>
-                            <%= image_tag "covers/NO_COVER.png", class: 'card-img-top' %>
+
+                            <div class="tab-content" id="nav-tabContent">
+                                <% @all.each do |g| %>
+                                    <div class="tab-pane" id="g<%= g.id.to_s %>" role="tabpanel" aria-labelledby="g<%= g.id.to_s %>-list"><%= image_tag "covers/" + g.image %></div>
+                                <% end %>
+                            </div>
+                            <%#= image_tag "covers/NO_COVER.png", class: 'card-img-top' %>
                         <% end %>
                         <%= render "games/search_form" %>
                         <%= bootstrap_form_with id: "new_offer_form", model: @offer, url: offers_path, method: :post, data: { turbo: true } do |f| %> <%# probably a more streamlined way to use form fields outside of a block, but this works %>

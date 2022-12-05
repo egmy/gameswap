@@ -1,12 +1,5 @@
-<p>Viewing <%= @games.count %> results</p>
-<ul>
-    <% @games.each do |g| %>
-        <li>
-            <%= link_to highlight(g.title, params[:title_search]), game_path(g) %>
-            <%= params %>
-            <%= link_to "TRY THIS", new_offer_path(params[:listing_id], :game_id => g.id) %> <!-- listing_id specifically for offers -->
-            <%= link_to "OR THIS IF LISTING", new_game_listing_path(:game_id => g.id) %>
-            <!-- passing game_id into current page -->
-        </li>
-    <% end %>
-</ul>
+<div class="list-group" id="myList" role="tablist">
+  <% @games.each do |g| %>
+    <a class="list-group-item list-group-item-action" id="g<%= g.id.to_s %>-list" data-bs-toggle="list" href="#g<%= g.id.to_s %>" role="tab" aria-controls="g<%= g.id.to_s %>"><%= g.title %></a>
+  <% end %>
+</div>

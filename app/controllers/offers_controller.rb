@@ -23,6 +23,7 @@ class OffersController < ApplicationController
   end
 
   def new
+    @all = Game.all
     @listing = Listing.find(params[:listing_id])
     if params[:game_id]
       @offer = Offer.new(:game_id => params[:game_id])
