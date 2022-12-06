@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   post 'index/:game_id', to: 'listings#create'
   get 'index/:game_id/new', to: 'listings#new', as: 'new_game_listing'
 
+  # get 'listings/new', to: 'listings#alt_new', as: 'new_listing' # enable for new listing + search game
+  # post 'listings', to: 'listings#create_listing', as: 'listings' # enable for new listnig + search game
+
   get 'listing/:listing_id/offers', to: 'offers#index', as: 'offers'
   get 'listing/:listing_id/offers/new', to: 'offers#new', as: 'new_offer'
   get 'listing/:listing_id/offers/new/games_index', to: 'offers#games_index', as: 'games_index' # used for WF06 'Choose from a list'
@@ -26,7 +29,11 @@ Rails.application.routes.draw do
   get 'profile/:profile_id/listings/:id/offers', to: 'listings#listing_offers', as: 'listing_offers'
   patch 'profile/:profile_id/listings/:listing_id/offers/:id', to: 'listings#accept_decline', as: 'listing_offer'
 
-
+  resources :games do
+    collection do
+      post :search
+    end
+  end
 
 
 
