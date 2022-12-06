@@ -10,7 +10,12 @@
 require "test_helper"
 
 class TagTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test 'fixtures are valid' do
+    tags.each do |tag|
+      assert tag.valid?, tag.errors.full_messages.inspect
+    end
+  end
+
+  
 end

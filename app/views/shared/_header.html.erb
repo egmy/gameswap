@@ -15,7 +15,7 @@
                     <!-- rating goes here -->[RATING]<br>
                     <p><%= @user.description %></p>
                     <% if @user == current_user %>
-                        <%= link_to "Edit Profile" %>
+                        <%= link_to "Edit Profile", edit_user_registration_path%>
                     <% end %>
                 </div>
                 <div class="col-3" id="offers_trade_history">

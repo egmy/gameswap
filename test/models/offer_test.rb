@@ -3,7 +3,6 @@
 # Table name: offers
 #
 #  id          :bigint           not null, primary key
-#  accepted    :boolean
 #  condition   :string
 #  description :string
 #  status      :string
@@ -28,7 +27,10 @@
 require "test_helper"
 
 class OfferTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  
+  test 'fixtures are valid' do
+    offers.each do |offer|
+      assert offer.valid?, offer.errors.full_messages.inspect
+    end
+  end
 end

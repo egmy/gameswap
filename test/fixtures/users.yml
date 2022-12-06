@@ -21,14 +21,18 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 
-one:
-  username: MyString
-  password: MyString
-  description: MyString
-  image: MyString
+john:
+  username: johnw
+  email: john@email.com
+  password: 123123
+  encrypted_password: <%= User.new.send(:password_digest, '123123') %>
+  description: Welcome to my page. I love mainly sports games and FPS games
+  image: user_icon.png
 
-two:
-  username: MyString
-  password: MyString
-  description: MyString
-  image: MyString
+tom:
+  username: tommyboy
+  email: tom@email.com
+  password: password
+  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+  description: I am only accepting new games. I like Indie all the way
+  image: user_icon.png

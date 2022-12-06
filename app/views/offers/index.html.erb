@@ -1,4 +1,5 @@
-<html>
+
+   <html>
     <head>
         <title></title>
     </head>
@@ -17,12 +18,14 @@
             <thead>
             <tbody>
                 <% @offers.each do |o| %>
+                <% if o.status=="active" %>
                     <tr>
                         <td><%= o.listing.game.title %></td>
                         <td><%= o.game.title %></td>
                         <td><%= o.description %></td>
                         <td><%= button_to "Cancel Offer", cancel_offer_path(o.listing.id, o.id), method: :delete, data: { turbo: false } %></td>
                     </tr>
+                    <% end %>
                 <% end %>
             </tbody>
         </table>

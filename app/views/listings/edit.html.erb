@@ -1,0 +1,21 @@
+<div class="container text-center mx-auto">
+    <h1> Edit Game Listing</h1>
+
+    <h3><%=@listing.game.title%></h3>
+
+    <%= image_tag "covers/" + @listing.game.image, size: '400x520' %>
+
+
+  <%= bootstrap_form_with model: @listing, method: :patch, url: show_listing_path(@owner, @listing), data: { turbo: false } do |f| %>
+    <%= f.select :condition, ["New", "Used-Like New", "Used-Very Good", "Used-Good", "Used-Acceptable"]%>
+    <%= f.text_field :description%>
+    <%= f.submit %>
+  <% end %>
+
+  <p class="mt-3">
+    <%= button_to 'Delete Listing', show_listing_path(@owner, @listing), method: :delete, data: { turbo: false }, class: 'btn btn-outline-secondary ', form: { class: 'd-inline' } %>
+    <br><br>
+    <%= link_to 'Cancel', my_listings_path(@owner), class: 'btn btn-outline-secondary' %>
+  </p>
+
+</div>

@@ -23,7 +23,11 @@
 require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  
+  test 'fixtures are valid' do
+    users.each do |user|
+      assert user.valid?, user.errors.full_messages.inspect
+    end
+  end
+
 end

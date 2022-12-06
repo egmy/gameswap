@@ -3,7 +3,6 @@
 # Table name: offers
 #
 #  id          :bigint           not null, primary key
-#  accepted    :boolean
 #  condition   :string
 #  description :string
 #  status      :string
@@ -26,14 +25,18 @@
 #  fk_rails_...  (user_id => users.id)
 #
 
-one:
-  description: MyString
-  condition: MyString
-  accepted: false
-  status: MyString
+tom_offer:
+  owner: tom
+  listing: john_listing
+  game: destiny
+  description: Basically a brand new game. Never played it.
+  condition: New
+  status: active
 
-two:
-  description: MyString
-  condition: MyString
-  accepted: false
-  status: MyString
+john_offer:
+  owner: john
+  listing: tom_listing
+  game: forza
+  description: This is kind of an old game
+  condition: Used-Like New
+  status: active
