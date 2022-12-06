@@ -10,9 +10,11 @@
                     <th>Game Title</th>
                     <th>Game Condition</th>
                     <th>Description</th>
+                    <% if listing.user==current_user%>
                     <th>No. of Offers</th>
                     <th><!-- Edit Listing --></th>
                     <th><!-- View My Offers --></th>
+                    <% end %>
                 </tr>
             <thead>
             <tbody>
