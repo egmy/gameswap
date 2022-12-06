@@ -8,18 +8,17 @@
         <%= search_form_for @q, url: games_index_path do |f| %>
 
             <div class="form-check">
-                <%= f.radio_button :tag_name_cont, '', {class: 'form-check-input fs-5'} %>
-                <%= f.label 'All', class: 'form-check-label fs-5' %>
+                <%= f.radio_button :tag_name_cont, '', {class: 'form-check-input fs-6', oninput: "this.form.requestSubmit()"} %>
+                <%= f.label 'All', class: 'form-check-label fs-6' %>
             </div>
 
             <% @tags.each do |tag| %>
                 <div class="form-check">
-                    <%= f.radio_button :tag_name_cont, tag.name, {class: 'form-check-input fs-5'} %>
-                    <%= f.label tag.name, class: 'form-check-label fs-5' %>
+                    <%= f.radio_button :tag_name_cont, tag.name, {class: 'form-check-input fs-6', oninput: "this.form.requestSubmit()"} %>
+                    <%= f.label tag.name, class: 'form-check-label fs-6' %>
                 </div>
             <% end %>
 
-            <%= f.submit name='Apply Filter', name: '', class: 'btn btn-outline-dark' %>
         <% end %>
     </div>
 
