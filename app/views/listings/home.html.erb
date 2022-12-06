@@ -10,10 +10,12 @@
                     <th>Game Title</th>
                     <th>Game Condition</th>
                     <th>Description</th>
-                    <% if listing.user==current_user%>
+                    <% if @owner==current_user%>
                     <th>No. of Offers</th>
                     <th><!-- Edit Listing --></th>
                     <th><!-- View My Offers --></th>
+                    <% else %>
+                    <th><!-- Make Offer --></th>
                     <% end %>
                 </tr>
             <thead>
@@ -29,9 +31,8 @@
                         <td><%= link_to "Edit Listing", edit_listing_path(current_user, listing), class: 'btn btn-outline-secondary'%></td>
                         <td><%= link_to "View Offers", listing_offers_path(current_user, listing),class: 'btn btn-outline-secondary'%></td>
                         <% else %>
-                            <td><%= link_to 'Make Offer', new_offer_path(listing.id), class: "btn btn-primary" %><td>
+                        <td><%= link_to 'Make Offer', new_offer_path(listing.id), class: 'btn btn-primary' %><td>
                         <% end %>
-
                     </tr>
                     <% end %>
                 <% end %>
