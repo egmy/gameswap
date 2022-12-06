@@ -13,41 +13,39 @@
 
 
 <div class="container-fluid">
-
     <div class="container-fluid row">
-
         <div class="col col-2">
-            <div class="row w-75 p-2"><%# change styling/spacing as desired %>
-                <%= link_to "Create New Listing", new_listing_path(), class: 'btn btn-primary btn-med' %>
+            <div class="row p-2"><%# change styling/spacing as desired %>
+                <div class="col">
+                    <%= link_to "Create New Listing", new_listing_path(), class: 'btn btn-primary btn-med' %>
+                </div>
             </div>
             <div class="row p-2">
-            <%= search_form_for @q, class: do |f| %>
-                <h3><strong>Genre</strong></h3>
+                <%= search_form_for @q, class: do |f| %>
+                    <h3><strong>Genre</strong></h3>
 
-                <div class="form-check">
-                    <%= f.radio_button :tag_name_cont, '', {class: 'form-check-input fs-6', oninput: "this.form.requestSubmit()"} %>
-                    <%= f.label 'All', class: 'form-check-label fs-6' %>
-                </div>
-
-                <% @tags.each do |tag| %>
                     <div class="form-check">
-                        <%= f.radio_button :tag_name_cont, tag.name, {class: 'form-check-input fs-6', oninput: "this.form.requestSubmit()"} %>
-                        <%= f.label tag.name, class: 'form-check-label fs-6' %>
+                        <%= f.radio_button :tag_name_cont, '', {class: 'form-check-input fs-6', oninput: "this.form.requestSubmit()"} %>
+                        <%= f.label 'All', class: 'form-check-label fs-6' %>
                     </div>
+
+                    <% @tags.each do |tag| %>
+                        <div class="form-check">
+                            <%= f.radio_button :tag_name_cont, tag.name, {class: 'form-check-input fs-6', oninput: "this.form.requestSubmit()"} %>
+                            <%= f.label tag.name, class: 'form-check-label fs-6' %>
+                        </div>
+                    <% end %>
+
+                    <div class="form-check form-switch">
+                        <%= f.check_box :listings_id_not_null, {class: 'form-check-input fs-6', oninput: "this.form.requestSubmit()"}, 1, nil %>
+                        <%= f.label "Games with listings", class: 'form-label fs-6'%>
+                    </div>
+
+
+                    <%= f.submit name='Apply Filter', name: '', class: 'btn btn-outline-dark' %>
                 <% end %>
-
-                <div class="form-check form-switch">
-                    <%= f.check_box :listings_id_not_null, {class: 'form-check-input fs-6', oninput: "this.form.requestSubmit()"}, 1, nil %>
-                    <%= f.label "Games with listings", class: 'form-label fs-6'%>
-                </div>
-
-
-                <%= f.submit name='Apply Filter', name: '', class: 'btn btn-outline-dark' %>
-            <% end %></div>
-
-
-
-
+        </div>
+    </div>
         <!-- Games container -->
         <div class="container col text-center">
             <div class="container row row-cols-auto gap-3 m-auto ">
@@ -73,5 +71,4 @@
             </div>
         </div>
     </div>
-
 </div>
