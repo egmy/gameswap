@@ -1,36 +1,37 @@
 
-<%= render "shared/header" %>
-<body>
-    <h3>Listings</h3>
-    <table class="table table-striped">
-        <thead class="table table-dark">
-            <tr>
-                <th>Game Title</th>
-                <th>Game Condition</th>
-                <th>Description</th>
-                <th><!-- Edit Listing --></th>
-                <th><!-- View My Offers --></th>
-            </tr>
-        <thead>
-        <tbody>
-            <% @listings.each do |listing| %>
-            <% if listing.status=="active"%>
-            <tr>
-                <td><%= listing.game.title %></td>
-                <td><%= listing.condition %></td>
-                <td><%= listing.description %></td>
-                <% if listing.user==current_user%>
-                <td><%= link_to "Edit Listing", edit_listing_path(current_user, listing), class: 'btn btn-outline-secondary'%></td>
-                <td><%= link_to "View Offers", listing_offers_path(current_user, listing),class: 'btn btn-outline-secondary'%></td>
-                <% else %>
-                    <td><%= link_to 'Make Offer', new_offer_path(listing.id), class: "btn btn-primary" %><td>
+ <%= render "shared/header" %>
+    <head>
+        <title></title>
+    </head>
+        <h3>Listings</h3>
+        <table class="table table-striped">
+            <thead class="table table-dark">
+                <tr>
+                    <th>Game Title</th>
+                    <th>Game Condition</th>
+                    <th>Description</th>
+                    <th>No. of Offers</th>
+                    <th><!-- Edit Listing --></th>
+                    <th><!-- View My Offers --></th>
+                </tr>
+            <thead>
+            <tbody>
+                    <% @listings.each do |listing| %>
+                    <% if listing.status=="active"%>
+                    <tr>
+                        <td><%= listing.game.title %></td>
+                        <td><%= listing.condition %></td>
+                        <td><%= listing.description%></td>
+                        <% if listing.user==current_user%>
+                        <td><%= listing.offers.where(status: 'active').size%></td>
+                        <td><%= link_to "Edit Listing", edit_listing_path(current_user, listing), class: 'btn btn-outline-secondary'%></td>
+                        <td><%= link_to "View Offers", listing_offers_path(current_user, listing),class: 'btn btn-outline-secondary'%></td>
+                        <% else %>
+                            <td><%= link_to 'Make Offer', new_offer_path(listing.id), class: "btn btn-primary" %><td>
+                        <% end %>
+
+                    </tr>
+                    <% end %>
                 <% end %>
-
-            </tr>
-            <% end %>
-
-            <% end %>
-        </tbody>
-    </table>
-</body>
-
+            </tbody>
+        </table>
