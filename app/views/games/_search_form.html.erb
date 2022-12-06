@@ -1,0 +1,12 @@
+<%= bootstrap_form_with url: search_games_path, method: :post do |f| %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :listing_id, params[:listing_id] %> <%# pass listing_id for new offer compliance %>
+    <%= hidden_field_tag :searching_from_url, request.original_url %> <%# used to check between new offer/new game; passing because search built using partials %>
+    <% if params[:game_id] %> <%# if there's a game title, insert it as a placeholder in the form field or else display an instructional prompt %>
+        <% placeholder_string = Game.find(params[:game_id]).title %>
+    <% else %>
+        <% placeholder_string = "Search for a game by title..." %>
+    <% end %>
+    <%= f.search_field :title_search, oninput: "this.form.requestSubmit()", label: "Game title", placeholder: placeholder_string %>
+<% end %>
+<div id="search_results"><%# search results displayed here %></div>

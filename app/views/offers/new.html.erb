@@ -1,5 +1,4 @@
 
-<%= bootstrap_form_with model: @offer, url: offers_path, method: :post, data: { turbo: false } do |f| %> <%# probably a more streamlined way to use form fields outside of a block, but this works %>
     <div class="container">
         <div class="row">
             <div class="col">
@@ -24,7 +23,7 @@
                 <div class="row h-50"><!-- formatting --></div>
                 <div>
                     <div class="col">
-                        <%= f.submit class: 'btn btn-secondary d-block'%>
+                        <input type="submit" value="Create Offer" form="new_offer_form" %> <!-- submit button outside of form tags by id -->
                         <%= link_to "Cancel", game_path(Listing.find(params[:listing_id]).game_id), class: 'btn btn-secondary d-block' %>
                     </div>
                 </div>
@@ -35,18 +34,20 @@
                     <% offer_game_title = Game.find(params[:game_id]).title %>
                     <%= image_tag "covers/" + Game.find(params[:game_id]).image, class: 'card-img-top', size: '525x640' %>  <%# placeholder for dynamic image %>
                 <% else %>
-                    <%= image_tag "covers/NO_COVER.png", class: 'bg-img', size: '525x640' %>  
+                    <%= image_tag "covers/NO_COVER.png", class: 'bg-img', size: '525x640' %>
                 <% end %>
+                <%= render "games/search_form" %>
+                <%= bootstrap_form_with id: "new_offer_form", model: @offer, url: offers_path, method: :post, data: { turbo: false } do |f| %> <%# probably a more streamlined way to use form fields outside of a block, but this works %>
 
-                <%= hidden_field_tag :title, offer_game_title %>
-                
-                <%# pass listing_id to games_index so it can redierct back to this page (using the correct listing_id that the offer is being made for) %>
-                <%= link_to "Choose Game", games_index_path(:listing_id => params[:listing_id]), class: 'btn btn-primary rounded-pill mt-2' %> 
-                <%= f.select :condition, %W(New #{"Used-Like New"} #{"Used-Very Good"} Used-Good Used-Acceptable) %>
-                <%= f.text_area :description, placeholder: "This game is in mint condition..." %>
+                    <%= hidden_field_tag :title, offer_game_title %>
+
+                    <%# pass listing_id to games_index so it can redierct back to this page (using the correct listing_id that the offer is being made for) %>
+                    <%= link_to "Choose Game", games_index_path(:listing_id => params[:listing_id]), class: 'btn btn-primary rounded-pill mt-2' %>
+                    <%= f.select :condition, %W(New #{"Used-Like New"} #{"Used-Very Good"} Used-Good Used-Acceptable) %>
+                    <%= f.text_area :description, placeholder: "This game is in mint condition..." %>
+                <% end %>
             </div>
         </div>
     </div>
-<% end %>
 
 

@@ -1,0 +1,33 @@
+<div class="list-group">
+  <% @games.take(5).each do |g| %>
+    <div class="row">
+      <div class="col md-100">
+        <button type="button" class="list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#g<%= g.id.to_s %>" aria-expanded="false" aria-controls="g<%= g.id.to_s %>">
+          <%= g.title %>
+        </button>
+      </div>
+      <div class="col-1"> <%# to-do set this column to fixed size%>
+        <%# if params[:listing_id] != "" and params[:searching_from_url] == new_offer_url(params[:listing_id]) %> <%# short circuit if listing_id is empty %>
+        <% if params[:listing_id] != "" and params[:searching_from_url].match(new_offer_url(params[:listing_id])) %> <%# short circuit if listing_id is empty, if searching_from_url (<url>?game=game_id) contains a portion of new_offer_url (<url>) %>
+          <%# new offer %>
+          <%= link_to "Offer", new_offer_path(params[:listing_id], :game_id => g.id), class: 'btn btn-sm btn-primary mt-1' %>
+        <% else %>
+          <%# new listing %>
+          <%= link_to "List", new_game_listing_path(:game_id => g.id), class: 'btn btn-sm btn-primary mt-1' %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="collapse multi-collapse" id="g<%= g.id.to_s %>">
+          <div class="card card-body">
+            <%# expandable information, can format however %>
+            <%= g.tag.name %><br>
+            <%= truncate(g.description, :length => 256) %>
+          </div>
+        </div>
+      </div>
+      <div class="col-1"><%# format %></div>
+    </div>
+  <% end %>
+</div>
