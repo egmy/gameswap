@@ -3,7 +3,7 @@
 <div class="container text-center m-3">
 
     <%= search_form_for @q do |f| %>
-        <div class="input-group mb-3"> 
+        <div class="input-group mb-3">
             <%= f.search_field :title_cont, class: 'form-control form-control-md', placeholder: 'Search Games' %>
             <%= f.submit class:'btn btn-outline-secondary'%>
         </div>
@@ -17,6 +17,10 @@
     <div class="container-fluid row">
 
         <div class="col col-2">
+            <div class="row w-75 p-2"><%# change styling/spacing as desired %>
+                <%= link_to "Create New Listing", new_listing_path(), class: 'btn btn-primary btn-med' %>
+            </div>
+            <div class="row p-2">
             <%= search_form_for @q, class: do |f| %>
                 <h3><strong>Genre</strong></h3>
 
@@ -38,11 +42,11 @@
                 </div>
 
                 <%= f.submit name='Apply Filter', name: '', class: 'btn btn-outline-dark' %>
-            <% end %>
+            <% end %></div>
         </div>
 
-        
-    
+
+
 
         <!-- Games container -->
         <div class="container col text-center">
@@ -57,11 +61,11 @@
                                 <%= image_tag "covers/" + game.image, class: "card-img-top", size: '175x280'   %>
                                 <div class="card-body bg-light">
                                     <p class="card-text" style="font-size: 13px"><%= game.title %> </p>
-                                </div>   
+                                </div>
                             </div>
                         <% end %>
                     </div>
-                    
+
                 <% end %>
                 <% if @games.count == 0%>
                     <p>No Games Found</p>
