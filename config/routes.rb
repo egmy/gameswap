@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   post 'index/:game_id', to: 'listings#create'
   get 'index/:game_id/new', to: 'listings#new', as: 'new_game_listing'
 
-  # get 'listings/new', to: 'listings#alt_new', as: 'new_listing' # enable for new listing + search game
-  # post 'listings', to: 'listings#create_listing', as: 'listings' # enable for new listnig + search game
+  get 'listings/new', to: 'listings#alt_new', as: 'new_listing' # enable for new listing + search game
+  post 'listings', to: 'listings#create_listing', as: 'listings' # enable for new listnig + search game
 
   get 'listing/:listing_id/offers', to: 'offers#index', as: 'offers'
   get 'listing/:listing_id/offers/new', to: 'offers#new', as: 'new_offer'
@@ -28,6 +28,9 @@ Rails.application.routes.draw do
 
   get 'profile/:profile_id/listings/:id/offers', to: 'listings#listing_offers', as: 'listing_offers'
   patch 'profile/:profile_id/listings/:listing_id/offers/:id', to: 'listings#accept_decline', as: 'listing_offer'
+
+  get 'profile/:profile_id/history', to: 'history#index', as: 'trade_history'
+  get 'profile/:profile_id/history/:offer_id/:rating', to: 'history#new_rating', as: 'new_rating'
 
   resources :games do
     collection do

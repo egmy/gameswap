@@ -1,0 +1,47 @@
+
+   <html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <!-- include user header here via views/layouts/application.html.erb conditional checking current_page?(path) -->
+        <%= render "shared/header" %>
+        <h3>Trade History</h3>
+        <table class="table table-striped"> <!-- styling to match previously created index, can change as necessary -->
+            <thead class="table table-dark">
+                <tr>
+                    <th>Game You Had</th>
+                    <th>Their Rating</th>
+                    <th>Game They Had</th>
+                    <th>Your Rating</th>
+                </tr>
+            <thead>
+            <tbody>
+                <% @offers.each do |o| %>
+                <% if o.status == 'accepted' %>
+                    <tr>
+                        <td><%= o.owner == @owner ? o.game.title : o.listing.game.title %></td>
+                        <% if o.ratings.find_by(author: @owner).nil? %>
+                            <td>Enter your rating to view</td>
+                        <% elsif !o.ratings.find_by(subject: @owner).nil? %>
+                            <td><%= o.ratings.find_by(subject: @owner).display %></td>
+                        <% else %>
+                            <td>No rating given</td>
+                        <% end %>
+                        <td><%= o.owner == @owner ? o.listing.game.title : o.game.title %></td>
+                        <% if o.ratings.find_by(author: @owner).nil? %>
+                            <td>
+                                <% for i in 1..5 do %>
+                                    <%= link_to '☆', new_rating_path(@owner, o, i), class: 'fw-bold', style: 'text-decoration: inherit' %>
+                                <% end %>
+                            </td>
+                        <% else %>
+                            <td><%= o.ratings.find_by(author: @owner).display %></td>
+                        <% end %>
+                    </tr>
+                    <% end %>
+                <% end %>
+            </tbody>
+        </table>
+    </body>
+</html>

@@ -10,15 +10,6 @@ class ListingsController < ApplicationController
     def home
       @owner= User.find(params[:profile_id])
       @listings = @owner.listings
-      count=0
-      @listings.each do |listing|
-        listing.offers.each do |offer|
-          if offer.status="accepted"
-            count=count+1
-          end
-        end
-      end
-      @count=count
       render :home
     end
 

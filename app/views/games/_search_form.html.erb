@@ -7,6 +7,6 @@
     <% else %>
         <% placeholder_string = "Search for a game by title..." %>
     <% end %>
-    <%= f.search_field :title_search, oninput: "this.form.requestSubmit()", label: "Game title", placeholder: placeholder_string %>
+    <%= f.search_field :title_search, oninput: "this.form.requestSubmit()", label: "Game title", value: placeholder_string %>
 <% end %>
 <div id="search_results"><%# search results displayed here %></div>
