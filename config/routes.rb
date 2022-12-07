@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   get 'profile/:profile_id/listings/:id/offers', to: 'listings#listing_offers', as: 'listing_offers'
   patch 'profile/:profile_id/listings/:listing_id/offers/:id', to: 'listings#accept_decline', as: 'listing_offer'
 
+  get 'profile/:profile_id/history', to: 'history#index', as: 'trade_history'
+
   resources :games do
     collection do
       post :search

@@ -22,7 +22,7 @@
                     <% if @user == current_user %>
                         <%= link_to "My Offers", my_offers_path(@user.id) %>
                         <br>
-                        <%= link_to "Trade History" %>
+                        <%= link_to "Trade History", trade_history_path(@user.id) %>
                     <% end %>
                 </div>
             </div>
