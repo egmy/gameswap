@@ -12,12 +12,12 @@ class ListingsController < ApplicationController
       @listings = @owner.listings
       count=0
       @listings.each do |listing|
-      listing.offers.each do |offer|
-        if offer.status="accepted"
-          count=count+1
+        listing.offers.each do |offer|
+          if offer.status="accepted"
+            count=count+1
+          end
         end
       end
-    end
       @count=count
       render :home
     end
