@@ -5,7 +5,7 @@
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-3" id="picture and name">
+                <div class="col-3 text-center" id="picture and name">
                     <% @user = User.find(params[:profile_id]) %>
                     <%= image_tag @user.image, class: "img-fluid w-50 rounded-circle" %>
                     <br>
@@ -20,9 +20,11 @@
                 </div>
                 <div class="col-3" id="offers_trade_history">
                     <% if @user == current_user %>
-                        <%= link_to "My Offers", my_offers_path(@user.id) %>
-                        <br>
-                        <%= link_to "Trade History", trade_history_path(@user.id) %>
+                        <ul class="list-group mt-3">
+                            <%= link_to 'My Listings', my_listings_path(@user.id), class: 'list-group-item list-group-item-action fs-6' %>
+                            <%= link_to "My Offers", my_offers_path(@user.id), class: 'list-group-item list-group-item-action fs-6' %>
+                            <%= link_to "Trade History", trade_history_path(@user.id), class: 'list-group-item list-group-item-action fs-6' %>
+                        </ul>
                     <% end %>
                 </div>
             </div>
