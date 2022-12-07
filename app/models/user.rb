@@ -49,7 +49,7 @@ class User < ApplicationRecord
     has_many(
         :authored_ratings,
         class_name:  'Rating',
-        foreign_key: 'user_id',
+        foreign_key: 'author_id',
         inverse_of:  :author,
         dependent:   :destroy
     )
@@ -57,9 +57,19 @@ class User < ApplicationRecord
     has_many(
         :received_ratings,
         class_name:  'Rating',
-        foreign_key: 'user_id',
+        foreign_key: 'subject_id',
         inverse_of:  :subject,
         dependent:   :destroy
     )
+
+    def get_rating
+        r_sum = 0
+        r_count = 0
+        for r in received_ratings do
+                r_sum += r.rating
+                r_count += 1
+        end
+        return r_sum.to_f / [r_count, 1].max
+    end
 
 end
