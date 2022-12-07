@@ -12,7 +12,7 @@
                     <%= @user.username %>
                 </div>
                 <div class="col-6" id="rating_description">
-                    <!-- rating goes here -->[RATING]<br>
+                    Rating: <%= @user.get_rating > 0 ? @user.get_rating : "none" %><br>
                     <p><%= @user.description %></p>
                     <% if @user == current_user %>
                         <%= link_to "Edit Profile", edit_user_registration_path%>

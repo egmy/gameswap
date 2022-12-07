@@ -55,9 +55,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_052402) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "offer_id"
-    t.bigint "user_id"
+    t.bigint "author_id"
+    t.bigint "subject_id"
+    t.index ["author_id"], name: "index_ratings_on_author_id"
     t.index ["offer_id"], name: "index_ratings_on_offer_id"
-    t.index ["user_id"], name: "index_ratings_on_user_id"
+    t.index ["subject_id"], name: "index_ratings_on_subject_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -89,5 +91,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_052402) do
   add_foreign_key "offers", "listings"
   add_foreign_key "offers", "users"
   add_foreign_key "ratings", "offers"
-  add_foreign_key "ratings", "users"
+  add_foreign_key "ratings", "users", column: "author_id"
+  add_foreign_key "ratings", "users", column: "subject_id"
 end

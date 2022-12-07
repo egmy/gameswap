@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   patch 'profile/:profile_id/listings/:listing_id/offers/:id', to: 'listings#accept_decline', as: 'listing_offer'
 
   get 'profile/:profile_id/history', to: 'history#index', as: 'trade_history'
+  get 'profile/:profile_id/history/:offer_id/:rating', to: 'history#new_rating', as: 'new_rating'
 
   resources :games do
     collection do
